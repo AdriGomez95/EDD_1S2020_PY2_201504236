@@ -1,0 +1,12 @@
+digraph G{
+ node[shape=record fontsize=9 fontcolor=red color= lightskyblue fontname = Verdana];
+ rankdir=LR;
+nodeR[label="<p0>|<p1>|<p2>|<p3>|<p4>|<p5>|<p6>|<p7>|<p8>|<p9>|<p10>|<p11>|<p12>|<p13>|<p14>|<p15>|<p16>|<p17>|<p18>|<p19>|<p20>|<p21>|<p22>|<p23>|<p24>|<p25>|<p26>|<p27>|<p28>|<p29>|<p30>Casilla: 30|<p31>|<p32>|<p33>|<p34>|<p35>|<p36>|<p37>|<p38>|<p39>|<p40>Casilla: 40|<p41>Casilla: 41|<p42>|<p43>|<p44>|"];
+node30[label="{<p0>201789345|}"];
+nodeR:p30->node30;
+node40[label="{<p0>201689365|}"];
+nodeR:p40->node40;
+node41[label="{<p0>201504236|<p1>201923456|}"];
+nodeR:p41->node41;
+
+}
