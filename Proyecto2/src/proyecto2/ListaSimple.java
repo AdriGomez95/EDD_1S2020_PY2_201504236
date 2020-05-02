@@ -172,6 +172,50 @@ public class ListaSimple {
         // Retorna el resultado de la bandera.
         return encontrado;
     }
+    public boolean buscarPassword(String referencia){
+        // Crea una copia de la lista.
+        SimpleNodo aux = inicio;
+        // Bandera para indicar si el valor existe.
+        boolean encontradopass = false;
+        // Recorre la lista hasta encontrar el elemento o hasta 
+        // llegar al final de la lista.
+        while(aux != null && encontradopass != true){
+            // Consulta si el valor del nodo es igual al de referencia.
+            if (referencia == aux.getPassword()){
+                // Canbia el valor de la bandera.
+                encontradopass = true;
+            }
+            else{
+                // Avansa al siguiente. nodo.
+                aux = aux.getSiguiente();
+            }
+        }
+        // Retorna el resultado de la bandera.
+        return encontradopass;
+    }
+    public boolean buscarCarnetPassword(int carnet,String password){
+        // Crea una copia de la lista.
+        SimpleNodo aux = inicio;
+        // Bandera para indicar si el valor existe.
+        boolean encontrado = false;
+        // Recorre la lista hasta encontrar el elemento o hasta 
+        // llegar al final de la lista.
+        while(aux != null && encontrado != true){
+            // Consulta si el valor del nodo es igual al de referencia.
+            if (carnet == aux.getCarnet()){
+                // Canbia el valor de la bandera.
+               if(password==aux.getPassword()){
+                    encontrado = true;
+               }
+            }
+            else{
+                // Avansa al siguiente. nodo.
+                aux = aux.getSiguiente();
+            }
+        }
+        // Retorna el resultado de la bandera.
+        return encontrado;
+    }
     
     
     

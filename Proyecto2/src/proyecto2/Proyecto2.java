@@ -26,6 +26,12 @@ public class Proyecto2 {
         
 //        ListaSimple listita = new ListaSimple();
 //        listita.agregarAlFinal(201504236, "Adriana", "Gomez", "Sistemas", "pass");
+//            if(listita.buscarPassword("passe")==true){
+//            System.out.println("contraseña correcta");
+//            
+//            }else{
+//                System.out.println("contraseña incorrecta");
+//            }
 //        listita.agregarAlFinal(201700000, "Juan", "Lopez", "Derecho", "pass");
 //        listita.agregarAlFinal(201600000, "Rosario", "Davila", "Economicas", "pass");
 //        listita.listar();

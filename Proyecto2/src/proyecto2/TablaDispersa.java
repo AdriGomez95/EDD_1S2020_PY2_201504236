@@ -49,11 +49,11 @@ public class TablaDispersa {
 //        numeroCasilla=IDLlave;
         if (TabalDispersa[IDLlave] == null) {
             TabalDispersa[IDLlave] = TablaNueva;
-            System.out.println("La posicion:" + IDLlave);
+            System.out.println("La posicion: " + IDLlave);
             Lista.agregarAlInicio(carnet, nombre, apellido, carrera, password);
             
         } else {
-            System.out.println("Sucedio una Colision");
+            System.out.println("Sucedio una Colision pero se arreglo");
             Lista.agregarAlFinal(carnet, nombre, apellido, carrera, password);
             //TabalDispersa[IDLlave].Lista.agregarAlFinal(carnet, nombre, apellido, carrera, password);
 //            int var = 0;
