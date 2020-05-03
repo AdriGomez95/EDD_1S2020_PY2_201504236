@@ -66,10 +66,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal() {
         initComponents();
-        jPanelCredenciales.setVisible(false);
-        btnIniciar.setVisible(false);
+//        jPanelCredenciales.setVisible(false);
+//        btnIniciar.setVisible(false);
         btnEliminar.setVisible(false);
-        lblCredenciales.setVisible(false);
+//        lblCredenciales.setVisible(false);
+        lblEditarUsuario.setVisible(false);
+        btnEditar.setVisible(false);
+        lblEditarUsuario.setVisible(false);
+        lblEliminarUsuario.setVisible(false);
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -90,13 +95,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        btnCrearUsuario = new javax.swing.JButton();
+        btnCrear = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblCrearUsuario = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         btnEditarUsuario = new javax.swing.JButton();
         btnEliminarUsuario = new javax.swing.JButton();
         btnIniciarSesion = new javax.swing.JButton();
+        btnCrearUsuario = new javax.swing.JButton();
         jPanelCredenciales = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -105,6 +112,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         btnEliminar = new javax.swing.JButton();
         btnIniciar = new javax.swing.JButton();
         lblCredenciales = new javax.swing.JLabel();
+        lblEditarUsuario = new javax.swing.JLabel();
+        lblEliminarUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -154,11 +163,19 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jLabel6.setText("Password");
 
-        btnCrearUsuario.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        btnCrearUsuario.setText("Crear");
-        btnCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+        btnCrear.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        btnCrear.setText("Crear");
+        btnCrear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCrearUsuarioActionPerformed(evt);
+                btnCrearActionPerformed(evt);
+            }
+        });
+
+        btnEditar.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        btnEditar.setText("Editar");
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
             }
         });
 
@@ -167,9 +184,13 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
+                        .addComponent(btnCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                        .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
@@ -181,38 +202,38 @@ public class MenuPrincipal extends javax.swing.JFrame {
                             .addComponent(txtNombre)
                             .addComponent(txtApellido)
                             .addComponent(txtCarrera)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                            .addComponent(txtCarnet)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(72, 72, 72)
-                        .addComponent(btnCrearUsuario)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                            .addComponent(txtPassword)
+                            .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
+                .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtCarnet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
                 .addGap(18, 18, 18)
-                .addComponent(btnCrearUsuario)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCrear)
+                    .addComponent(btnEditar))
                 .addContainerGap())
         );
 
@@ -222,15 +243,15 @@ public class MenuPrincipal extends javax.swing.JFrame {
         txtCarrera.getAccessibleContext().setAccessibleName("");
         txtPassword.getAccessibleContext().setAccessibleName("");
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 28, 230, 250));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 28, 230, 290));
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         jLabel1.setText("Accion sobre usuarios");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, 130, -1));
 
-        jLabel7.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        jLabel7.setText("Crear usuario");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 110, -1));
+        lblCrearUsuario.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        lblCrearUsuario.setText("Crear usuario");
+        getContentPane().add(lblCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 110, -1));
 
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -258,6 +279,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
 
+        btnCrearUsuario.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        btnCrearUsuario.setText("Crear usuario");
+        btnCrearUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCrearUsuarioActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -265,6 +294,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(43, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnEliminarUsuario)
                     .addComponent(btnEditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -272,8 +302,10 @@ public class MenuPrincipal extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
+                .addComponent(btnCrearUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEditarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnEliminarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -282,7 +314,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 230, 100));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 230, 130));
 
         jPanelCredenciales.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -293,6 +325,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jLabel10.setText("Password");
 
         txtCarnet2.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        txtCarnet2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCarnet2KeyTyped(evt);
+            }
+        });
 
         txtPassword2.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
 
@@ -306,6 +343,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         btnIniciar.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         btnIniciar.setText("Iniciar ");
+        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelCredencialesLayout = new javax.swing.GroupLayout(jPanelCredenciales);
         jPanelCredenciales.setLayout(jPanelCredencialesLayout);
@@ -315,17 +357,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelCredencialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCredencialesLayout.createSequentialGroup()
-                        .addComponent(btnEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnIniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnEliminar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnIniciar))
                     .addGroup(jPanelCredencialesLayout.createSequentialGroup()
                         .addGroup(jPanelCredencialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel9)
                             .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanelCredencialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtCarnet2, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                            .addComponent(txtPassword2))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanelCredencialesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCarnet2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 11, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanelCredencialesLayout.setVerticalGroup(
@@ -346,16 +389,26 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanelCredenciales, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 230, 120));
+        getContentPane().add(jPanelCredenciales, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 230, 120));
 
         lblCredenciales.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        lblCredenciales.setText("Ingresar credenciales");
-        getContentPane().add(lblCredenciales, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 140, -1, -1));
+        lblCredenciales.setText("Iniciar sesión");
+        getContentPane().add(lblCredenciales, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
+
+        lblEditarUsuario.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        lblEditarUsuario.setForeground(new java.awt.Color(0, 0, 255));
+        lblEditarUsuario.setText("Editar usuario");
+        getContentPane().add(lblEditarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+
+        lblEliminarUsuario.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        lblEliminarUsuario.setForeground(new java.awt.Color(51, 51, 255));
+        lblEliminarUsuario.setText("Eliminar usuario");
+        getContentPane().add(lblEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuarioActionPerformed
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
         carnet = Integer.parseInt(txtCarnet.getText());
         nombre = txtNombre.getText();
@@ -381,18 +434,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         txtApellido.setText(null);
         txtCarrera.setText(null);
         txtPassword.setText(null);
-    }//GEN-LAST:event_btnCrearUsuarioActionPerformed
+    }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         // TODO add your handling code here:
-        InicioSesion iniciarSesion = new InicioSesion();
-        iniciarSesion.setVisible(true);
-        this.setVisible(false);
+        jPanelCredenciales.setVisible(true);
+        btnIniciar.setVisible(true);
+        lblCredenciales.setVisible(true);
+        btnEliminar.setVisible(false);
+        lblEliminarUsuario.setVisible(false);
+        lblCredenciales.setVisible(true);
         
-        
-//        Biblioteca menuBiblioteca = new Biblioteca();
-//        menuBiblioteca.setVisible(true);
-//        this.setVisible(false);
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void btnEliminarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarUsuarioActionPerformed
@@ -400,17 +452,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jPanelCredenciales.setVisible(true);
         btnEliminar.setVisible(true);
         lblCredenciales.setVisible(true);
+        btnIniciar.setVisible(false);
+        lblCredenciales.setVisible(false);
+        lblEliminarUsuario.setVisible(true);
         
-//        InicioSesion iniciarSesion = new InicioSesion();
-//        iniciarSesion.setVisible(true);
-//        this.setVisible(false);
     }//GEN-LAST:event_btnEliminarUsuarioActionPerformed
 
     private void btnEditarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarUsuarioActionPerformed
         // TODO add your handling code here:
-        EditarUsuario editarUsuario = new EditarUsuario();
-        editarUsuario.setVisible(true);
-        this.setVisible(false);
+        lblCrearUsuario.setVisible(false);
+        lblEditarUsuario.setVisible(true);
+        btnCrear.setVisible(false);
+        btnEditar.setVisible(true);
         
     }//GEN-LAST:event_btnEditarUsuarioActionPerformed
 
@@ -431,14 +484,17 @@ public class MenuPrincipal extends javax.swing.JFrame {
         carnetito = Integer.parseInt(txtCarnet2.getText());
         clave = txtPassword2.getText();
         
-        int IDLlave = (carnetito) % 45;
-//        getMD5(clave);
+        int IDLlave = (carnetito) % 45;//ME QUEDE EN AL ELIMINAR EL NUMERO DE CASILLA AUMENTA Y NO PUEDO ARREGLARLO
+//        getMD5(clave);                //VERIFICAR EN TABLA HASH SI SE LE PUEDE MANDAR EL IDLLAVE CON UN NUEVO METODO GETNODO Y GETTERS DE LA TABLA EN EL
         System.out.println("Entro");
         
         if(IDLlave==1){
                 if(Lista1.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista1.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista1.listar();
+                    carnetArrayHash[1]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -446,6 +502,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista2.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista2.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista2.listar();
+                    carnetArrayHash[2]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -453,6 +512,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista3.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista3.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista3.listar();
+                    carnetArrayHash[3]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -460,6 +522,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista4.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista4.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista4.listar();
+                    carnetArrayHash[4]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -467,6 +532,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista5.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista5.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista5.listar();
+                    carnetArrayHash[5]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -474,6 +542,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista6.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista6.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista6.listar();
+                    carnetArrayHash[6]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -481,6 +552,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista7.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista7.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista7.listar();
+                    carnetArrayHash[7]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -488,6 +562,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista8.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista8.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista8.listar();
+                    carnetArrayHash[8]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -495,6 +572,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista9.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista9.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista9.listar();
+                    carnetArrayHash[9]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -502,6 +582,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista10.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista10.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista10.listar();
+                    carnetArrayHash[10]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -509,6 +592,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista11.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista11.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista11.listar();
+                    carnetArrayHash[11]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -516,6 +602,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista12.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista12.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista12.listar();
+                    carnetArrayHash[12]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -523,6 +612,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista13.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista13.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista13.listar();
+                    carnetArrayHash[13]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -530,6 +622,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista14.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista14.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista14.listar();
+                    carnetArrayHash[14]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -537,6 +632,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista15.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista15.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista15.listar();
+                    carnetArrayHash[15]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -544,6 +642,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista16.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista16.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista16.listar();
+                    carnetArrayHash[16]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -551,6 +652,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista17.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista17.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista17.listar();
+                    carnetArrayHash[17]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -558,6 +662,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista18.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista18.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista18.listar();
+                    carnetArrayHash[18]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -565,6 +672,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista19.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista19.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista19.listar();
+                    carnetArrayHash[19]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -572,6 +682,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista20.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista20.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista20.listar();
+                    carnetArrayHash[20]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -579,6 +692,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista21.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista21.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista21.listar();
+                    carnetArrayHash[21]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -586,6 +702,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista22.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista22.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista22.listar();
+                    carnetArrayHash[22]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -593,6 +712,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista23.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista23.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista23.listar();
+                    carnetArrayHash[23]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -600,6 +722,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista24.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista24.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista24.listar();
+                    carnetArrayHash[24]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -607,6 +732,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista25.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista25.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista25.listar();
+                    carnetArrayHash[25]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -614,6 +742,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista26.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista26.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista26.listar();
+                    carnetArrayHash[26]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -621,6 +752,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista27.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista27.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista27.listar();
+                    carnetArrayHash[27]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -628,6 +762,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista28.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista28.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista28.listar();
+                    carnetArrayHash[28]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -635,6 +772,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista29.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista29.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista29.listar();
+                    carnetArrayHash[29]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -642,6 +782,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista30.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista30.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista30.listar();
+                    carnetArrayHash[30]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -649,6 +792,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista31.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista31.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista31.listar();
+                    carnetArrayHash[31]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -656,6 +802,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista32.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista32.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista32.listar();
+                    carnetArrayHash[32]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -663,6 +812,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista33.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista33.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista33.listar();
+                    carnetArrayHash[33]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -670,6 +822,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista34.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista34.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista34.listar();
+                    carnetArrayHash[34]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -677,6 +832,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista35.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista35.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista35.listar();
+                    carnetArrayHash[35]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -684,6 +842,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista36.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista36.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista36.listar();
+                    carnetArrayHash[36]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -691,6 +852,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista37.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista37.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista37.listar();
+                    carnetArrayHash[37]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -698,6 +862,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista38.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista38.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista38.listar();
+                    carnetArrayHash[38]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -705,6 +872,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista39.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista39.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista39.listar();
+                    carnetArrayHash[39]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -712,6 +882,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista40.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista40.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista40.listar();
+                    carnetArrayHash[40]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -721,17 +894,23 @@ public class MenuPrincipal extends javax.swing.JFrame {
 //                System.out.println("credenciales correctas, usuario eliminado");
               JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
               Lista41.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista41.listar();
+                    carnetArrayHash[41]=IDLlave;
 //            }else{
 //                System.out.println("contraseña incorrecta");
 //            }
             }else{
-                System.out.println("credenciales incorrectas");
+//                System.out.println("credenciales incorrectas");
                 JOptionPane.showMessageDialog(null,"credenciales incorrectas");
             }
         }else if(IDLlave==42){
                 if(Lista42.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista42.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista42.listar();
+                    carnetArrayHash[42]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -739,6 +918,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista43.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista43.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista43.listar();
+                    carnetArrayHash[43]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -746,6 +928,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista44.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista44.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista44.listar();
+                    carnetArrayHash[44]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
@@ -753,16 +938,406 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 if(Lista45.buscar(carnetito)==true){
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
                   Lista45.removerPorReferencia(carnetito);
+                  tabla.GraficarTabla();
+                  Lista45.listar();
+                    carnetArrayHash[45]=IDLlave;
                 }else{
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
         }else{
-            System.out.println("el usuario no existe");
-              JOptionPane.showMessageDialog(null,"El usuario no existe");
+//            System.out.println("el usuario no existe");
+            JOptionPane.showMessageDialog(null,"El usuario no existe");
         }
         
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void txtCarnet2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCarnet2KeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();
+        if( Character.isDigit(car)){
+
+        }else{
+            evt.consume();
+            getToolkit().beep();
+        }
+    }//GEN-LAST:event_txtCarnet2KeyTyped
+
+    private void btnCrearUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearUsuarioActionPerformed
+        // TODO add your handling code here:
+        lblCrearUsuario.setVisible(true);
+        lblEditarUsuario.setVisible(false);
+        btnCrear.setVisible(true);
+        btnEditar.setVisible(false);
+    }//GEN-LAST:event_btnCrearUsuarioActionPerformed
+
+    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+        // TODO add your handling code here:
+        
+        Biblioteca biblioteca = new Biblioteca();
+        carnetito = Integer.parseInt(txtCarnet2.getText());
+        clave = txtPassword2.getText();
+        
+        int IDLlave = (carnetito) % 45;
+//        getMD5(clave);
+        
+        if(IDLlave==1){
+                if(Lista1.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==2){
+                if(Lista2.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==3){
+                if(Lista3.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==4){
+                if(Lista4.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==5){
+                if(Lista5.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==6){
+                if(Lista6.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==7){
+                if(Lista7.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==8){
+                if(Lista8.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==9){
+                if(Lista9.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==10){
+                if(Lista10.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==11){
+                if(Lista11.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==12){
+                if(Lista12.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==13){
+                if(Lista13.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==14){
+                if(Lista14.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==15){
+                if(Lista15.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==16){
+                if(Lista16.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==17){
+                if(Lista17.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==18){
+                if(Lista18.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==19){
+                if(Lista19.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==20){
+                if(Lista20.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==21){
+                if(Lista21.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==22){
+                if(Lista22.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==23){
+                if(Lista23.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==24){
+                if(Lista24.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==25){
+                if(Lista25.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==26){
+                if(Lista26.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==27){
+                if(Lista27.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==28){
+                if(Lista28.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==29){
+                if(Lista29.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==30){
+                if(Lista30.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==31){
+                if(Lista31.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==32){
+                if(Lista32.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==33){
+                if(Lista33.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==34){
+                if(Lista34.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==35){
+                if(Lista35.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==36){
+                if(Lista36.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==37){
+                if(Lista37.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==38){
+                if(Lista38.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==39){
+                if(Lista39.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==40){
+                if(Lista40.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==41){
+            if(Lista41.buscar(carnetito)==true){
+//            if(Lista41.buscarPassword(getMD5(clave))==true){
+//                System.out.println("credenciales correctas, usuario eliminado");
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+//            }else{
+//                System.out.println("contraseña incorrecta");
+//            }
+            }else{
+                JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+            }
+        }else if(IDLlave==42){
+//            if(this.Lista42.esVacia()==true){//Si la lista esta vacia
+//                System.out.println("lista vacia");
+//            }else{//Si la lista esta llena
+                if(Lista42.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+//            }
+            
+        }else if(IDLlave==43){
+                if(Lista43.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==44){
+                if(Lista44.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else if(IDLlave==45){
+                if(Lista45.buscar(carnetito)==true){
+                    biblioteca.setVisible(true);
+                    this.setVisible(false);
+                }else{
+                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                }
+        }else{
+//            System.out.println("el usuario no existe");
+            JOptionPane.showMessageDialog(null,"El usuario no existe");
+        }
+        
+        
+    }//GEN-LAST:event_btnIniciarActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        // TODO add your handling code here:
+        carnet = Integer.parseInt(txtCarnet.getText());
+        nombre = txtNombre.getText();
+        carrera = txtCarrera.getText();
+        apellido = txtApellido.getText();
+        password = txtPassword.getText();
+        
+        
+        int IDLlave2 = (carnet) % 45;
+        modificandoHashLista(IDLlave2);//MANDO A LLAMAR AL METODO PARA MODIFICAR LOS USUARIOS EN LA HASH
+
+        tabla.GraficarTabla();
+        JOptionPane.showMessageDialog(null, "Usuario modificado exitosamente");
+        txtCarnet.setText(null);
+        txtNombre.setText(null);
+        txtApellido.setText(null);
+        txtCarrera.setText(null);
+        txtPassword.setText(null);
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    
+    
+    
+    
     
     
     
@@ -974,7 +1549,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                             break;
                     }
                     carnetArrayHash[i]=IDLlave;
-                    System.out.println(carnetArrayHash[i]+", ");
+//                    System.out.println(carnetArrayHash[i]+", ");
                     
                     
                     
@@ -1209,8 +1784,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
                     }
 
                     
-                    carnetArrayHash[i]=IDLlave;
-                    System.out.println(carnetArrayHash[i]);
+                    carnetArrayHash[i]=IDLlave;//Llenando el array
+//                    System.out.println(carnetArrayHash[i]);
                     
                 }//fin del if comparador de posicion ocupada o vacia
             }//fin del if de posicion
@@ -1219,9 +1794,199 @@ public class MenuPrincipal extends javax.swing.JFrame {
         
     }
     
-    
-    
-    
+    //***** METODO PARA MODIFICAR LOS USUARIOS *****
+    public void modificandoHashLista(int IDLlave2){
+        int i,j=0;
+        for(i=0; i<=45; i++){
+            if(IDLlave2==i){//SI LA LLAVE GENERADA ES IGUAL A LA POSICION
+                if(carnetArrayHash[i]==IDLlave2){//VERIFICA SI ESA POSICION ESTA OCUPADA
+                    switch(IDLlave2){
+                        case 1:
+                            tabla.ModificarNodoH(Lista1, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista1.listar();
+                            break;
+                        case 2:
+                            tabla.ModificarNodoH(Lista2, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista2.listar();
+                            break;
+                        case 3:
+                            tabla.ModificarNodoH(Lista3, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista3.listar();
+                            break;
+                        case 4:
+                            tabla.ModificarNodoH(Lista4, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista4.listar();
+                            break;
+                        case 5:
+                            tabla.ModificarNodoH(Lista5, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista5.listar();
+                            break;
+                        case 6:
+                            tabla.ModificarNodoH(Lista6, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista6.listar();
+                            break;
+                        case 7:
+                            tabla.ModificarNodoH(Lista7, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista7.listar();
+                            break;
+                        case 8:
+                            tabla.ModificarNodoH(Lista8, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista8.listar();
+                            break;
+                        case 9:
+                            tabla.ModificarNodoH(Lista9, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista9.listar();
+                            break;
+                        case 10:
+                            tabla.ModificarNodoH(Lista10, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista10.listar();
+                            break;
+                        case 11:
+                            tabla.ModificarNodoH(Lista11, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista11.listar();
+                            break;
+                        case 12:
+                            tabla.ModificarNodoH(Lista12, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista12.listar();
+                            break;
+                        case 13:
+                            tabla.ModificarNodoH(Lista13, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista13.listar();
+                            break;
+                        case 14:
+                            tabla.ModificarNodoH(Lista14, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista14.listar();
+                            break;
+                        case 15:
+                            tabla.ModificarNodoH(Lista15, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista15.listar();
+                            break;
+                        case 16:
+                            tabla.ModificarNodoH(Lista16, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista16.listar();
+                            break;
+                        case 17:
+                            tabla.ModificarNodoH(Lista17, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista17.listar();
+                            break;
+                        case 18:
+                            tabla.ModificarNodoH(Lista18, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista18.listar();
+                            break;
+                        case 19:
+                            tabla.ModificarNodoH(Lista19, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista9.listar();
+                            break;
+                        case 20:
+                            tabla.ModificarNodoH(Lista20, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista20.listar();
+                            break;
+                        case 21:
+                            tabla.ModificarNodoH(Lista21, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista21.listar();
+                            break;
+                        case 22:
+                            tabla.ModificarNodoH(Lista22, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista22.listar();
+                            break;
+                        case 23:
+                            tabla.ModificarNodoH(Lista23, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista23.listar();
+                            break;
+                        case 24:
+                            tabla.ModificarNodoH(Lista24, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista24.listar();
+                            break;
+                        case 25:
+                            tabla.ModificarNodoH(Lista25, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista25.listar();
+                            break;
+                        case 26:
+                            tabla.ModificarNodoH(Lista26, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista26.listar();
+                            break;
+                        case 27:
+                            tabla.ModificarNodoH(Lista27, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista27.listar();
+                            break;
+                        case 28:
+                            tabla.ModificarNodoH(Lista28, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista28.listar();
+                            break;
+                        case 29:
+                            tabla.ModificarNodoH(Lista29, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista29.listar();
+                            break;
+                        case 30:
+                            tabla.ModificarNodoH(Lista30, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista30.listar();
+                            break;
+                        case 31:
+                            tabla.ModificarNodoH(Lista31, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista31.listar();
+                            break;
+                        case 32:
+                            tabla.ModificarNodoH(Lista32, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista32.listar();
+                            break;
+                        case 33:
+                            tabla.ModificarNodoH(Lista33, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista33.listar();
+                            break;
+                        case 34:
+                            tabla.ModificarNodoH(Lista34, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista34.listar();
+                            break;
+                        case 35:
+                            tabla.ModificarNodoH(Lista35, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista35.listar();
+                            break;
+                        case 36:
+                            tabla.ModificarNodoH(Lista36, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista36.listar();
+                            break;
+                        case 37:
+                            tabla.ModificarNodoH(Lista37, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista37.listar();
+                            break;
+                        case 38:
+                            tabla.ModificarNodoH(Lista38, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista38.listar();
+                            break;
+                        case 39:
+                            tabla.ModificarNodoH(Lista39, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista39.listar();
+                            break;
+                        case 40:
+                            tabla.ModificarNodoH(Lista40, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista40.listar();
+                            break;
+                        case 41:
+                            tabla.ModificarNodoH(Lista41, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista41.listar();
+                            break;
+                        case 42:
+                            tabla.ModificarNodoH(Lista42, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista42.listar();
+                            break;
+                        case 43:
+                            tabla.ModificarNodoH(Lista43, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista43.listar();
+                            break;
+                        case 44:
+                            tabla.ModificarNodoH(Lista44, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista44.listar();
+                            break;
+                        case 45:
+                            tabla.ModificarNodoH(Lista45, carnet, nombre, apellido, carrera, getMD5(password));
+                            Lista45.listar();
+                            break;
+                            
+                    }
+                }
+            }
+        }
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -1256,7 +2021,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCrear;
     private javax.swing.JButton btnCrearUsuario;
+    private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEditarUsuario;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnEliminarUsuario;
@@ -1272,12 +2039,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelCredenciales;
+    private javax.swing.JLabel lblCrearUsuario;
     private javax.swing.JLabel lblCredenciales;
+    private javax.swing.JLabel lblEditarUsuario;
+    private javax.swing.JLabel lblEliminarUsuario;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCarnet;
     private javax.swing.JTextField txtCarnet2;

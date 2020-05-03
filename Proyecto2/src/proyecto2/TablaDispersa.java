@@ -41,6 +41,18 @@ public class TablaDispersa {
         this.TamanoDispersa = Tamano;
     }
     
+    void ModificarNodoH(ListaSimple Lista, int carnet, String nombre, String apellido, String carrera, String password){
+        numeroCasilla=0;
+         IDLlave = (carnet) % 45;
+          if (TabalDispersa[IDLlave] != null) {
+            System.out.println("\nLa posicion: " + IDLlave+"\n");
+        Lista.editarPorReferencia(carnet, carnet, nombre, apellido, carrera, password);
+        System.out.println("Usuario editado");
+          }else{
+              System.out.println("No hay coincidencias");
+          }
+    }
+    
     void InsertarNodoH(ListaSimple Lista, int carnet, String nombre, String apellido, String carrera, String password) {
         numeroCasilla=0;
         NodoH TablaNueva = new NodoH(Lista, carnet, nombre,apellido,carrera, password);
@@ -49,11 +61,11 @@ public class TablaDispersa {
 //        numeroCasilla=IDLlave;
         if (TabalDispersa[IDLlave] == null) {
             TabalDispersa[IDLlave] = TablaNueva;
-            System.out.println("La posicion: " + IDLlave);
+            System.out.println("\nLa posicion: " + IDLlave+"\n");
             Lista.agregarAlInicio(carnet, nombre, apellido, carrera, password);
             
         } else {
-            System.out.println("Sucedio una Colision pero se arreglo");
+            System.out.println("\nSucedio una Colision pero se arreglo\n");
             Lista.agregarAlFinal(carnet, nombre, apellido, carrera, password);
             //TabalDispersa[IDLlave].Lista.agregarAlFinal(carnet, nombre, apellido, carrera, password);
 //            int var = 0;

@@ -25,7 +25,14 @@ public class Proyecto2 {
         
         
 //        ListaSimple listita = new ListaSimple();
-//        listita.agregarAlFinal(201504236, "Adriana", "Gomez", "Sistemas", "pass");
+//        ListaSimple listita2 = new ListaSimple();
+//        listita.agregarAlInicio(201504236, "Adriana", "Gomez", "Sistemas", "pass");
+//        if(listita2.esVacia()==false){
+//            System.out.println("lista llena");
+//        }else{
+//            System.out.println("lista vacia");
+//        }
+        
 //            if(listita.buscarPassword("passe")==true){
 //            System.out.println("contraseña correcta");
 //            
