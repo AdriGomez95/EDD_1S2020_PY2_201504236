@@ -1,8 +1,11 @@
 
 package proyecto2;
+import java.io.File;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.LinkedList;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
 /**
@@ -66,6 +69,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     public MenuPrincipal() {
         initComponents();
+        setLocationRelativeTo(null);
 //        jPanelCredenciales.setVisible(false);
 //        btnIniciar.setVisible(false);
         btnEliminar.setVisible(false);
@@ -120,6 +124,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jButton1.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jButton1.setText("Carga \nmasiva");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, -1, -1));
 
         jButton4.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
@@ -1333,6 +1342,24 @@ public class MenuPrincipal extends javax.swing.JFrame {
         txtCarrera.setText(null);
         txtPassword.setText(null);
     }//GEN-LAST:event_btnEditarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+         JFileChooser jf = new JFileChooser();
+
+        jf.showOpenDialog(this);
+        File Archivo = jf.getSelectedFile();
+
+        if (Archivo != null) {
+            if (Archivo.getName().endsWith("json")) {
+                System.out.println(Archivo.getAbsolutePath());
+            } else {
+
+                JOptionPane.showMessageDialog(null, "Archivo incorrecto \n intentelo de nuevo");
+            }
+
+        }   
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     
     

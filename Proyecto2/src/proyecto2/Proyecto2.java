@@ -6,11 +6,42 @@ package proyecto2;
  * @author Adriana Gómez
  */
 public class Proyecto2 {
-
-    public static void main(String[] args) {
+    
+    public static void main(String[] args) throws Exception {
+        Biblioteca biblioteca = new Biblioteca();
+//        biblioteca.setVisible(true);
         MenuPrincipal menu = new MenuPrincipal();
-        ArbolB nuevo = new ArbolB();
-        menu.show();
+//        menu.show();
+        ArbolB arbolito = new ArbolB();
+            
+        
+//        arbolito.insertar(50, "cenicienta", "yo", "santillana", 1, 2, "infantil", "español", 3);
+//        arbolito.insertar(100, "sirenita", "yo", "santillana", 1, 2, "infantil", "español", 3);
+//        arbolito.insertar(80, "pulgarcito", "yo", "santillana", 1, 2, "infantil", "español", 3);
+//        arbolito.insertar(90, "bella", "yo", "santillana", 1, 2, "infantil", "español", 3);
+//        arbolito.insertar(60, "dama", "yo", "santillana", 1, 2, "infantil", "español", 3);
+//        arbolito.insertar(70, "dama", "yo", "santillana", 1, 2, "infantil", "español", 3);
+//        arbolito.insertar(40, "dama", "yo", "santillana", 1, 2, "infantil", "español", 3);
+//        arbolito.insertar(30, "dama", "yo", "santillana", 1, 2, "infantil", "español", 3);
+//        arbolito.insertar(20, "dama", "yo", "santillana", 1, 2, "infantil", "español", 3);
+//        arbolito.insertar(10, "dama", "yo", "santillana", 1, 2, "infantil", "español", 3);
+//        arbolito.insertar(5, "dama", "yo", "santillana", 1, 2, "infantil", "español", 3);
+//        
+//        System.out.println(arbolito.buscarInfo(3));
+//        arbolito.GenerarGrafo();
+//        arbolito.insertar(115,funcionReemplazarEspacios("El Barbuchin"));
+        
+//        arbolito.insertar(108,funcionReemplazarEspacios("Rapunzel"));
+//        arbolito.insertar(103,funcionReemplazarEspacios("El Principito"));
+//        arbolito.insertar(113,funcionReemplazarEspacios("La Sirenita"));
+//        arbolito.insertar(107,funcionReemplazarEspacios("La Cenicienta"));
+//        arbolito.insertar(112,funcionReemplazarEspacios("Pinocho"));
+//        arbolito.insertar(114,funcionReemplazarEspacios("Bambi"));
+//        arbolito.insertar(106,funcionReemplazarEspacios("Pulgarcito"));
+//        arbolito.insertar(102,funcionReemplazarEspacios("Aladino"));
+//        arbolito.GenerarGrafo();
+//        System.out.println("Palabra 1: "+palabra);
+//        System.out.println("Palabra 2: "+palabra2);
         /*nuevo.insertar(100,"Caperucita");
         nuevo.insertar(115,"Barbuchin");
         nuevo.insertar(108,"Rapunzel");
@@ -26,7 +57,7 @@ public class Proyecto2 {
         
 //        ListaSimple listita = new ListaSimple();
 //        ListaSimple listita2 = new ListaSimple();
-//        listita.agregarAlInicio(201504236, "Adriana", "Gomez", "Sistemas", "pass");
+//        listita.agregarAlInicio(2, "Adriana", "Gomez", "Sistemas", "pass");
 //        if(listita2.esVacia()==false){
 //            System.out.println("lista llena");
 //        }else{
@@ -69,5 +100,9 @@ public class Proyecto2 {
         
         
     }
+    
+    public static String funcionReemplazarEspacios(String cadena) {
+    return cadena.replace(" ", "_");
+}
     
 }

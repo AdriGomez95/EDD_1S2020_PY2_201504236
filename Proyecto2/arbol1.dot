@@ -2,18 +2,6 @@ digraph matriz{
  rankdir=TB;
 node [ shape=ellipse fontsize=9 color= lightskyblue fontname = Verdana ];
 edge [];
-NodoRapunzel108[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:108    Nombre:Rapunzel|<p1>
-|<cont2>ISBN:103    Nombre:Principito|<p2>
-"];NodoCaperucita100[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:100    Nombre:Caperucita|<p1>
-|<cont2>ISBN:102    Nombre:Aladino|<p2>
-"];NodoPinocho112[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:112    Nombre:Pinocho|<p1>
-|<cont2>ISBN:113    Nombre:Sirenita|<p2>
-|<cont3>ISBN:114    Nombre:Bambi|<p3>
-|<cont4>ISBN:115    Nombre:Barbuchin|<p4>
-"];NodoPulgarcito106[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:106    Nombre:Pulgarcito|<p1>
-|<cont2>ISBN:107    Nombre:Cenicienta|<p2>
-"];NodoRapunzel108:p0->NodoCaperucita100[constraint=true];
-NodoRapunzel108:p1->NodoPinocho112[constraint=true];
-NodoRapunzel108:p2->NodoPulgarcito106[constraint=true];
-
+Nodosirenita1[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:1    \nTitulo:sirenita    \nAutor:yo    \nEditorial:santillana    \nAño:2020    \nEdicion:2    \nCategoria:infantil    \nIdioma:español    \nCarnet:201504236    |<p1>
+"];
 }

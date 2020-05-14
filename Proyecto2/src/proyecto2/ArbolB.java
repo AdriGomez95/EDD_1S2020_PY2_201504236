@@ -27,8 +27,8 @@ public class ArbolB {
     }
     
     
-    void insertar(int ISBN, String nombre) {
-        NodoB nuevo = new NodoB(ISBN, nombre);
+    void insertar(int ISBN, String nombre, String autor, String editorial, int año, int edicion, String categoria, String idioma, int carnet) {
+        NodoB nuevo = new NodoB(ISBN, nombre, autor, editorial, año, edicion, categoria, idioma, carnet);
         this.raiz = insertar(this.raiz, nuevo);
     }
 
@@ -164,6 +164,52 @@ boolean siSube = false;
             return (nodoCL.ISBN == raiz.keys[this.k].ISBN);
         }
     }
+//    public boolean Check(int k){
+//        Libro  temp = Find(k);
+//        return temp != null;
+//    }
+//    String info="";//PaginaB temporal, NodoB mediana
+//    int pivote,tamArbol,prueba;
+//    public String buscarInfo(int comparador){
+//            pivote = raiz.account;
+//            tamArbol = raiz.tamArbol;
+//            prueba = raiz.account;
+//        if(comparador==mediana.ISBN){
+//            return info="encontrado 1";
+//        }else if(comparador<raiz.keys[pivote].ISBN){
+//            
+//            System.out.println("pivote: "+pivote);
+//            System.out.println("nodo pivote: "+raiz.keys[pivote].ISBN);
+//            System.out.println("ramas: "+raiz.ramas.length);
+//            
+//            
+////            if(raiz.ramas[pivote].account!=1){
+//////                if(comparador<raiz.ramas[pivote].keys[pivote].ISBN){
+//////                    System.out.println(raiz.ramas[pivote].keys[pivote].ISBN);
+//////                }
+////                    System.out.println(prueba);
+////                    prueba--;
+////                    System.out.println(tamArbol);
+////                    System.out.println(raiz.ramas[prueba].keys[pivote].ISBN);
+////            }else{
+////            
+//            while (comparador < raiz.keys[pivote].ISBN && pivote > 1) {
+//                pivote--;
+//                System.out.println(raiz.keys[pivote].ISBN);
+//                if(raiz.keys[pivote].ISBN==comparador){
+//                    return info="ISBN: "+raiz.keys[pivote].ISBN+"\nTitulo: "+raiz.keys[pivote].nombre;
+//                }
+//            }
+//            
+//        }else if(comparador>mediana.ISBN){
+//            return info="encontrado con exito 3";
+//        }
+//        
+//        System.out.println("Nodos totales: "+raiz.tamArbol);
+//        return info="No hay coincidencias";
+//    }
+    
+    
     
     
 
@@ -193,7 +239,14 @@ boolean siSube = false;
             for (j = 1; j < actual.account + 1; j++) {
                 grafo = grafo + "|<cont" + j + ">";
                 grafo = grafo + "ISBN:" + actual.keys[j].ISBN + "    ";
-                grafo = grafo + "Nombre:" + actual.keys[j].nombre;//*****************************
+                grafo = grafo + "\\nTitulo:" + actual.keys[j].nombre+"    ";//*****************************
+                grafo = grafo + "\\nAutor:" + actual.keys[j].autor+"    ";
+                grafo = grafo + "\\nEditorial:" + actual.keys[j].editorial+"    ";
+                grafo = grafo + "\\nAño:" + actual.keys[j].año+"    ";
+                grafo = grafo + "\\nEdicion:" + actual.keys[j].edicion+"    ";
+                grafo = grafo + "\\nCategoria:" + actual.keys[j].categoria+"    ";
+                grafo = grafo + "\\nIdioma:" + actual.keys[j].idioma+"    ";
+                grafo = grafo + "\\nCarnet:" + actual.keys[j].carnet+"    ";
                 grafo = grafo + "|<p" + j + ">\n";
             }
             grafo = grafo + "\"];";
@@ -231,7 +284,7 @@ boolean siSube = false;
         graficar();
         FileWriter flwriter = null;
         try {
-            flwriter = new FileWriter("C:\\Users\\X\\Desktop\\EDD\\Proyecto2\\arbol1.dot");
+            flwriter = new FileWriter("C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbol1.dot");
             try (BufferedWriter bfwriter = new BufferedWriter(flwriter)) {
                 bfwriter.write(grafo);
             }
@@ -253,8 +306,8 @@ boolean siSube = false;
             GenerarDot();
             
             String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
-            String fileInputPath = "C:\\Users\\X\\Desktop\\EDD\\Proyecto2\\arbol1.dot";
-            String fileOutputPath = "C:\\Users\\X\\Desktop\\EDD\\Proyecto2\\arbol1.jpg";
+            String fileInputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbol1.dot";
+            String fileOutputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbol1.jpg";
             String tParam = "-Tjpg";
             String tOParam = "-o";
             String[] cmd = new String[5];

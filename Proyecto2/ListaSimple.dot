@@ -1,4 +1,0 @@
-digraph G{
-node0[shape = record,label = "201800000"];
-node1[shape = record,label = "202000000"];
-node0->node1}
