@@ -14,7 +14,7 @@ public class ListaSimple {
     // como cabeza de la lista.
     private SimpleNodo inicio;
     // Variable para registrar el tamaño de la lista.
-    private int tamanio;
+    public int tamanio;
     
     
     

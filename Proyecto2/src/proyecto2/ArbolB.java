@@ -284,7 +284,7 @@ boolean siSube = false;
         graficar();
         FileWriter flwriter = null;
         try {
-            flwriter = new FileWriter("C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbol1.dot");
+            flwriter = new FileWriter("C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibros.dot");
             try (BufferedWriter bfwriter = new BufferedWriter(flwriter)) {
                 bfwriter.write(grafo);
             }
@@ -306,8 +306,8 @@ boolean siSube = false;
             GenerarDot();
             
             String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
-            String fileInputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbol1.dot";
-            String fileOutputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbol1.jpg";
+            String fileInputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibros.dot";
+            String fileOutputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibros.jpg";
             String tParam = "-Tjpg";
             String tOParam = "-o";
             String[] cmd = new String[5];

@@ -1,6 +1,5 @@
 
 package proyecto2;
-
 /**
  *
  * @author Adriana Gómez
@@ -8,12 +7,54 @@ package proyecto2;
 public class Proyecto2 {
     
     public static void main(String[] args) throws Exception {
+        Categorias categoria = new Categorias();
+        categoria.setVisible(true);
         Biblioteca biblioteca = new Biblioteca();
 //        biblioteca.setVisible(true);
         MenuPrincipal menu = new MenuPrincipal();
 //        menu.show();
         ArbolB arbolito = new ArbolB();
             
+//                        Libro nuevo = new Libro();
+//                        nuevo.setISBN(1);
+//                        nuevo.setAnio("2020");
+//                        nuevo.setIdioma("español");
+//                        nuevo.setTitulo("sirenita");
+//                        nuevo.setEditorial("santillana");
+//                        nuevo.setAutor("paulo");
+//                        nuevo.setEdicion("1");
+//                        nuevo.setCategoria("infantil");
+//                        nuevo.setCarnet(2014);
+//        AVL avl = new AVL();
+//        AVL.Node raizAvl = null;
+//        Categoria b = new Categoria ();
+//        Categoria n = new Categoria ();
+//        Categoria s = new Categoria ();
+//        Categoria f = new Categoria ();
+//        Categoria e = new Categoria ();
+//        b.setNombre("infantil");
+//        n.setNombre("sagas");
+//        s.setNombre("thriller");
+//        f.setNombre("ficcion");
+//        e.setNombre("dramas");                      
+//        b.setCarnet(2015);                       
+//        b.setCarnet(2015);                       
+//        b.setCarnet(2015);                       
+//        b.setCarnet(2015);                       
+//        b.setCarnet(2015);  
+//        raizAvl = avl.insert(raizAvl, b);
+//        raizAvl = avl.insert(raizAvl, n);
+//        raizAvl = avl.insert(raizAvl, s);
+//        raizAvl = avl.insert(raizAvl, f);
+//        raizAvl = avl.insert(raizAvl, e);
+//        avl.Graficar(raizAvl);
+//          avl.RecorreridoPreorden(raizAvl);
+//          avl.GraficarRecorrido(raizAvl); 
+//          avl.RecorreridoInorden(raizAvl);
+//          avl.GraficarRecorrido(raizAvl); 
+//          avl.RecorreridoPostorden(raizAvl);
+//          avl.GraficarRecorrido(raizAvl); 
+        
         
 //        arbolito.insertar(50, "cenicienta", "yo", "santillana", 1, 2, "infantil", "español", 3);
 //        arbolito.insertar(100, "sirenita", "yo", "santillana", 1, 2, "infantil", "español", 3);

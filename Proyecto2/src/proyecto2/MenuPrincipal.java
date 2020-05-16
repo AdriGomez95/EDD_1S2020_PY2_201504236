@@ -7,12 +7,28 @@ import java.security.NoSuchAlgorithmException;
 import java.util.LinkedList;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import Bibliotecam.AVL;
+import Bibliotecam.Categoria;
+import Bibliotecam.Libro;
+import java.util.ArrayList;
 
 /**
  *
  * @author Adriana Gómez    
  */
 public class MenuPrincipal extends javax.swing.JFrame {
+  
+  public static int carnetActual;
+  
+  public static LinkedList<String> todascategorias = new LinkedList<String>();
+  public static AVL ArbolCategorias = new AVL();
+  public static AVL.Node raizAvl = null;
+  public static LinkedList<Libro> MisLibros = new LinkedList<Libro>();
+  public static LinkedList<Libro> LibrosCat = new LinkedList<Libro>();
+  
+    //para guardar las categorias individuales
+  public static String[] arrayCategoriasGeneral = new String[1000];
+  
     TablaDispersa tabla = new TablaDispersa(45);
     public static int[] carnetArrayHash = new int[45];//Para guardarlo y verificar los 45 espacios de la hash
     ListaSimple Lista1 = null;
@@ -118,6 +134,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblCredenciales = new javax.swing.JLabel();
         lblEditarUsuario = new javax.swing.JLabel();
         lblEliminarUsuario = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -139,6 +156,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jButton6.setText("Reportes");
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, -1));
 
+        jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel2.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
@@ -262,6 +280,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblCrearUsuario.setText("Crear usuario");
         getContentPane().add(lblCrearUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, 110, -1));
 
+        jPanel3.setBackground(new java.awt.Color(255, 153, 153));
         jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         btnEditarUsuario.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
@@ -325,6 +344,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 230, 130));
 
+        jPanelCredenciales.setBackground(new java.awt.Color(255, 153, 153));
         jPanelCredenciales.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel9.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
@@ -405,14 +425,29 @@ public class MenuPrincipal extends javax.swing.JFrame {
         getContentPane().add(lblCredenciales, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
 
         lblEditarUsuario.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        lblEditarUsuario.setForeground(new java.awt.Color(0, 0, 255));
+        lblEditarUsuario.setForeground(new java.awt.Color(255, 109, 18));
         lblEditarUsuario.setText("Editar usuario");
         getContentPane().add(lblEditarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         lblEliminarUsuario.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        lblEliminarUsuario.setForeground(new java.awt.Color(51, 51, 255));
+        lblEliminarUsuario.setForeground(new java.awt.Color(255, 109, 18));
         lblEliminarUsuario.setText("Eliminar usuario");
         getContentPane().add(lblEliminarUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(255, 204, 255));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 740, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 440, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 740, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -985,7 +1020,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         Biblioteca biblioteca = new Biblioteca();
         carnetito = Integer.parseInt(txtCarnet2.getText());
         clave = txtPassword2.getText();
-        
+        carnetActual=  carnetito;
         int IDLlave = (carnetito) % 45;
 //        getMD5(clave);
         
@@ -2068,6 +2103,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelCredenciales;
     private javax.swing.JLabel lblCrearUsuario;

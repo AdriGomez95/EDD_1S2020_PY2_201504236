@@ -1,0 +1,11 @@
+digraph G {
+ rankdir = LR;dramas[shape=elipse,label="dramas" style = filled];
+infantil[shape=elipse,label="infantil" style = filled];
+dramas -> infantil
+ficcion[shape=elipse,label="ficcion" style = filled];
+infantil -> ficcion
+thriller[shape=elipse,label="thriller" style = filled];
+ficcion -> thriller
+sagas[shape=elipse,label="sagas" style = filled];
+thriller -> sagas
+}
