@@ -10,13 +10,65 @@ import javax.swing.JOptionPane;
 import Bibliotecam.AVL;
 import Bibliotecam.Categoria;
 import Bibliotecam.Libro;
-import java.util.ArrayList;
-
 /**
  *
+ * 
  * @author Adriana Gómez    
  */
 public class MenuPrincipal extends javax.swing.JFrame {
+    
+    public static TablaDispersa tabla = new TablaDispersa(45);
+    public static int[] carnetArrayHash = new int[45];//Para guardarlo y verificar los 45 espacios de la hash
+    public static ListaSimple Lista1 = null;
+    public static ListaSimple Lista2 = null;
+    public static ListaSimple Lista3 = null;
+    public static ListaSimple Lista4 = null;
+    public static ListaSimple Lista5 = null;
+    public static ListaSimple Lista6 = null;
+    public static ListaSimple Lista7 = null;
+    public static ListaSimple Lista8 = null;
+    public static ListaSimple Lista9 = null;
+    public static ListaSimple Lista10 = null;
+    public static ListaSimple Lista11 = null;
+    public static ListaSimple Lista12 = null;
+    public static ListaSimple Lista13 = null;
+    public static ListaSimple Lista14 = null;
+    public static ListaSimple Lista15 = null;
+    public static ListaSimple Lista16 = null;
+    public static ListaSimple Lista17 = null;
+    public static ListaSimple Lista18 = null;
+    public static ListaSimple Lista19 = null;
+    public static ListaSimple Lista20 = null;
+    public static ListaSimple Lista21 = null;
+    public static ListaSimple Lista22 = null;
+    public static ListaSimple Lista23 = null;
+    public static ListaSimple Lista24 = null;
+    public static ListaSimple Lista25 = null;
+    public static ListaSimple Lista26 = null;
+    public static ListaSimple Lista27 = null;
+    public static ListaSimple Lista28 = null;
+    public static ListaSimple Lista29 = null;
+    public static ListaSimple Lista30 = null;
+    public static ListaSimple Lista31 = null;
+    public static ListaSimple Lista32 = null;
+    public static ListaSimple Lista33 = null;
+    public static ListaSimple Lista34 = null;
+    public static ListaSimple Lista35 = null;
+    public static ListaSimple Lista36 = null;
+    public static ListaSimple Lista37 = null;
+    public static ListaSimple Lista38 = null;
+    public static ListaSimple Lista39 = null;
+    public static ListaSimple Lista40 = null;
+    public static ListaSimple Lista41 = null;
+    public static ListaSimple Lista42 = null;
+    public static ListaSimple Lista43 = null;
+    public static ListaSimple Lista44 = null;
+    public static ListaSimple Lista45 = null;
+    
+    
+    
+    
+    
   
   public static int carnetActual;
   
@@ -25,63 +77,25 @@ public class MenuPrincipal extends javax.swing.JFrame {
   public static AVL.Node raizAvl = null;
   public static LinkedList<Libro> MisLibros = new LinkedList<Libro>();
   public static LinkedList<Libro> LibrosCat = new LinkedList<Libro>();
+  public static ArbolB arbolBGeneral = new ArbolB();
+  public static  String[][] matrizLibros = new String[9][1000];
   
-    //para guardar las categorias individuales
-  public static String[] arrayCategoriasGeneral = new String[1000];
+    
+  public static String[] arrayCategoriasGeneral = new String[1000]; //para guardar las categorias 
+  public static int[] arrayISBNGeneral = new int[1000]; //para guardar los isbn y comparar
+  public static String[] arrayUsuarioGeneral = new String[1000]; //para guardar los isbn y comparar
   
-    TablaDispersa tabla = new TablaDispersa(45);
-    public static int[] carnetArrayHash = new int[45];//Para guardarlo y verificar los 45 espacios de la hash
-    ListaSimple Lista1 = null;
-    ListaSimple Lista2 = null;
-    ListaSimple Lista3 = null;
-    ListaSimple Lista4 = null;
-    ListaSimple Lista5 = null;
-    ListaSimple Lista6 = null;
-    ListaSimple Lista7 = null;
-    ListaSimple Lista8 = null;
-    ListaSimple Lista9 = null;
-    ListaSimple Lista10 = null;
-    ListaSimple Lista11 = null;
-    ListaSimple Lista12 = null;
-    ListaSimple Lista13 = null;
-    ListaSimple Lista14 = null;
-    ListaSimple Lista15 = null;
-    ListaSimple Lista16 = null;
-    ListaSimple Lista17 = null;
-    ListaSimple Lista18 = null;
-    ListaSimple Lista19 = null;
-    ListaSimple Lista20 = null;
-    ListaSimple Lista21 = null;
-    ListaSimple Lista22 = null;
-    ListaSimple Lista23 = null;
-    ListaSimple Lista24 = null;
-    ListaSimple Lista25 = null;
-    ListaSimple Lista26 = null;
-    ListaSimple Lista27 = null;
-    ListaSimple Lista28 = null;
-    ListaSimple Lista29 = null;
-    ListaSimple Lista30 = null;
-    ListaSimple Lista31 = null;
-    ListaSimple Lista32 = null;
-    ListaSimple Lista33 = null;
-    ListaSimple Lista34 = null;
-    ListaSimple Lista35 = null;
-    ListaSimple Lista36 = null;
-    ListaSimple Lista37 = null;
-    ListaSimple Lista38 = null;
-    ListaSimple Lista39 = null;
-    ListaSimple Lista40 = null;
-    ListaSimple Lista41 = null;
-    ListaSimple Lista42 = null;
-    ListaSimple Lista43 = null;
-    ListaSimple Lista44 = null;
-    ListaSimple Lista45 = null;
     
     public String nombre, apellido, carrera, password;
     public int carnet;
     
     public  String clave, clave2;//Para password de iniciar sesion y eliminar usuario
     public  int carnetito;//Para iniciar sesion y eliminar usuario
+    
+    
+    
+    
+    
 
     public MenuPrincipal() {
         initComponents();
@@ -460,24 +474,49 @@ public class MenuPrincipal extends javax.swing.JFrame {
         apellido = txtApellido.getText();
         password = txtPassword.getText();
         
-        //palabrita="12345";
-        getMD5(password); //El password le pasamos en texto plano
-        //Ahora voy a imprimir
-        //System.out.print(getMD5(password));
-        //Esto nos mostraría lo siguiente
-        //827ccb0eea8a706c4c34a16891f84e7b
+        int k=0;
+        boolean bandera = false;
+        for(k=0; k<=1000; k++){
+            if(arrayUsuarioGeneral[k]!=null){
+                if(txtCarnet.getText() == null ? arrayUsuarioGeneral[k] == null : txtCarnet.getText().equals(arrayUsuarioGeneral[k])){
+                    JOptionPane.showMessageDialog(null, "El carnet ya existe \n ingrese otro \n"); 
+                    bandera=false;
+                    break;
+                }
+            }else{
+//                JOptionPane.showMessageDialog(null, "agregado \n"); 
+                arrayUsuarioGeneral[k]=txtCarnet.getText();
+                System.out.println(arrayUsuarioGeneral[k]);
+               bandera=true;
+                break;
+            }
+        }
         
-        int IDLlave = (carnet) % 45;
-        insertandoHashLista(IDLlave);//MANDO A LLAMAR AL METODO PARA INSERTAR LOS USUARIOS EN LA HASH
-        
-        tabla.GraficarTabla();
-        
-        JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
-        txtCarnet.setText(null);
-        txtNombre.setText(null);
-        txtApellido.setText(null);
-        txtCarrera.setText(null);
-        txtPassword.setText(null);
+        if(bandera==true){
+            //palabrita="12345";
+            getMD5(password); //El password le pasamos en texto plano
+            //Ahora voy a imprimir
+            //System.out.print(getMD5(password));
+            //Esto nos mostraría lo siguiente
+            //827ccb0eea8a706c4c34a16891f84e7b
+
+            int IDLlave = (carnet) % 45;
+            insertandoHashLista(IDLlave);//MANDO A LLAMAR AL METODO PARA INSERTAR LOS USUARIOS EN LA HASH
+
+            tabla.GraficarTabla();
+
+            JOptionPane.showMessageDialog(null, "Usuario creado exitosamente\n"
+                    + "Carnet: "+carnet+"\nNombre: "+nombre+"\nApellido: "+apellido+"\nCarrera: "+carrera+
+                    "\nPassword: "+password+"\nPass MD5: "+getMD5(password));
+            txtCarnet.setText(null);
+            txtNombre.setText(null);
+            txtApellido.setText(null);
+            txtCarrera.setText(null);
+            txtPassword.setText(null);
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "Error en la creacion de usuario \n"); 
+        }
     }//GEN-LAST:event_btnCrearActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
@@ -524,7 +563,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
-        
         carnetito = Integer.parseInt(txtCarnet2.getText());
         clave = txtPassword2.getText();
         
@@ -532,465 +570,491 @@ public class MenuPrincipal extends javax.swing.JFrame {
 //        getMD5(clave);                //VERIFICAR EN TABLA HASH SI SE LE PUEDE MANDAR EL IDLLAVE CON UN NUEVO METODO GETNODO Y GETTERS DE LA TABLA EN EL
         System.out.println("Entro");
         
-        if(IDLlave==1){
-                if(Lista1.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista1.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista1.listar();
-                    carnetArrayHash[1]=IDLlave;
+        
+        boolean bandera=false;
+            for(int l=0; l<=1000; l++){
+                if(arrayUsuarioGeneral[l]!=null){
+                    if(arrayUsuarioGeneral[l] == null ? txtCarnet2.getText() == null : arrayUsuarioGeneral[l].equals(txtCarnet2.getText())){
+                        arrayUsuarioGeneral[l]="";// me quede en eliminar del array a los usuarios, ya esta es de probarlo
+
+//                  JOptionPane.showMessageDialog(null,"Usuario eliminado");
+                  bandera=true;
+
+                        break;
+                    }
                 }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+//                    JOptionPane.showMessageDialog(null, "No existe ese usuario en tu lista \n");
+                    bandera=false;
+                    break;
                 }
-        }else if(IDLlave==2){
-                if(Lista2.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista2.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista2.listar();
-                    carnetArrayHash[2]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==3){
-                if(Lista3.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista3.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista3.listar();
-                    carnetArrayHash[3]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==4){
-                if(Lista4.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista4.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista4.listar();
-                    carnetArrayHash[4]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==5){
-                if(Lista5.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista5.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista5.listar();
-                    carnetArrayHash[5]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==6){
-                if(Lista6.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista6.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista6.listar();
-                    carnetArrayHash[6]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==7){
-                if(Lista7.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista7.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista7.listar();
-                    carnetArrayHash[7]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==8){
-                if(Lista8.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista8.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista8.listar();
-                    carnetArrayHash[8]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==9){
-                if(Lista9.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista9.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista9.listar();
-                    carnetArrayHash[9]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==10){
-                if(Lista10.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista10.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista10.listar();
-                    carnetArrayHash[10]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==11){
-                if(Lista11.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista11.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista11.listar();
-                    carnetArrayHash[11]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==12){
-                if(Lista12.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista12.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista12.listar();
-                    carnetArrayHash[12]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==13){
-                if(Lista13.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista13.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista13.listar();
-                    carnetArrayHash[13]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==14){
-                if(Lista14.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista14.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista14.listar();
-                    carnetArrayHash[14]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==15){
-                if(Lista15.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista15.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista15.listar();
-                    carnetArrayHash[15]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==16){
-                if(Lista16.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista16.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista16.listar();
-                    carnetArrayHash[16]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==17){
-                if(Lista17.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista17.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista17.listar();
-                    carnetArrayHash[17]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==18){
-                if(Lista18.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista18.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista18.listar();
-                    carnetArrayHash[18]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==19){
-                if(Lista19.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista19.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista19.listar();
-                    carnetArrayHash[19]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==20){
-                if(Lista20.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista20.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista20.listar();
-                    carnetArrayHash[20]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==21){
-                if(Lista21.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista21.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista21.listar();
-                    carnetArrayHash[21]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==22){
-                if(Lista22.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista22.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista22.listar();
-                    carnetArrayHash[22]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==23){
-                if(Lista23.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista23.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista23.listar();
-                    carnetArrayHash[23]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==24){
-                if(Lista24.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista24.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista24.listar();
-                    carnetArrayHash[24]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==25){
-                if(Lista25.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista25.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista25.listar();
-                    carnetArrayHash[25]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==26){
-                if(Lista26.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista26.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista26.listar();
-                    carnetArrayHash[26]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==27){
-                if(Lista27.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista27.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista27.listar();
-                    carnetArrayHash[27]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==28){
-                if(Lista28.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista28.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista28.listar();
-                    carnetArrayHash[28]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==29){
-                if(Lista29.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista29.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista29.listar();
-                    carnetArrayHash[29]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==30){
-                if(Lista30.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista30.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista30.listar();
-                    carnetArrayHash[30]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==31){
-                if(Lista31.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista31.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista31.listar();
-                    carnetArrayHash[31]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==32){
-                if(Lista32.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista32.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista32.listar();
-                    carnetArrayHash[32]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==33){
-                if(Lista33.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista33.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista33.listar();
-                    carnetArrayHash[33]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==34){
-                if(Lista34.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista34.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista34.listar();
-                    carnetArrayHash[34]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==35){
-                if(Lista35.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista35.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista35.listar();
-                    carnetArrayHash[35]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==36){
-                if(Lista36.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista36.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista36.listar();
-                    carnetArrayHash[36]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==37){
-                if(Lista37.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista37.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista37.listar();
-                    carnetArrayHash[37]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==38){
-                if(Lista38.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista38.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista38.listar();
-                    carnetArrayHash[38]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==39){
-                if(Lista39.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista39.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista39.listar();
-                    carnetArrayHash[39]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==40){
-                if(Lista40.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista40.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista40.listar();
-                    carnetArrayHash[40]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==41){
-            if(Lista41.buscar(carnetito)==true){
-//            if(Lista41.buscarPassword(getMD5(clave))==true){
-//                System.out.println("credenciales correctas, usuario eliminado");
-              JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-              Lista41.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista41.listar();
-                    carnetArrayHash[41]=IDLlave;
-//            }else{
-//                System.out.println("contraseña incorrecta");
-//            }
-            }else{
-//                System.out.println("credenciales incorrectas");
-                JOptionPane.showMessageDialog(null,"credenciales incorrectas");
             }
-        }else if(IDLlave==42){
-                if(Lista42.buscar(carnetito)==true){
+        
+        
+        
+        if(bandera==true){
+        
+        
+        
+            if(IDLlave==1){
+                    if(Lista1.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista1.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista1.listar();
+                        carnetArrayHash[1]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==2){
+                    if(Lista2.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista2.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista2.listar();
+                        carnetArrayHash[2]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==3){
+                    if(Lista3.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista3.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista3.listar();
+                        carnetArrayHash[3]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==4){
+                    if(Lista4.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista4.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista4.listar();
+                        carnetArrayHash[4]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==5){
+                    if(Lista5.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista5.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista5.listar();
+                        carnetArrayHash[5]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==6){
+                    if(Lista6.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista6.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista6.listar();
+                        carnetArrayHash[6]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==7){
+                    if(Lista7.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista7.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista7.listar();
+                        carnetArrayHash[7]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==8){
+                    if(Lista8.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista8.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista8.listar();
+                        carnetArrayHash[8]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==9){
+                    if(Lista9.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista9.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista9.listar();
+                        carnetArrayHash[9]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==10){
+                    if(Lista10.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista10.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista10.listar();
+                        carnetArrayHash[10]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==11){
+                    if(Lista11.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista11.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista11.listar();
+                        carnetArrayHash[11]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==12){
+                    if(Lista12.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista12.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista12.listar();
+                        carnetArrayHash[12]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==13){
+                    if(Lista13.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista13.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista13.listar();
+                        carnetArrayHash[13]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==14){
+                    if(Lista14.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista14.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista14.listar();
+                        carnetArrayHash[14]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==15){
+                    if(Lista15.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista15.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista15.listar();
+                        carnetArrayHash[15]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==16){
+                    if(Lista16.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista16.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista16.listar();
+                        carnetArrayHash[16]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==17){
+                    if(Lista17.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista17.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista17.listar();
+                        carnetArrayHash[17]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==18){
+                    if(Lista18.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista18.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista18.listar();
+                        carnetArrayHash[18]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==19){
+                    if(Lista19.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista19.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista19.listar();
+                        carnetArrayHash[19]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==20){
+                    if(Lista20.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista20.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista20.listar();
+                        carnetArrayHash[20]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==21){
+                    if(Lista21.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista21.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista21.listar();
+                        carnetArrayHash[21]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==22){
+                    if(Lista22.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista22.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista22.listar();
+                        carnetArrayHash[22]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==23){
+                    if(Lista23.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista23.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista23.listar();
+                        carnetArrayHash[23]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==24){
+                    if(Lista24.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista24.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista24.listar();
+                        carnetArrayHash[24]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==25){
+                    if(Lista25.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista25.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista25.listar();
+                        carnetArrayHash[25]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==26){
+                    if(Lista26.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista26.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista26.listar();
+                        carnetArrayHash[26]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==27){
+                    if(Lista27.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista27.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista27.listar();
+                        carnetArrayHash[27]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==28){
+                    if(Lista28.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista28.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista28.listar();
+                        carnetArrayHash[28]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==29){
+                    if(Lista29.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista29.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista29.listar();
+                        carnetArrayHash[29]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==30){
+                    if(Lista30.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista30.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista30.listar();
+                        carnetArrayHash[30]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==31){
+                    if(Lista31.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista31.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista31.listar();
+                        carnetArrayHash[31]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==32){
+                    if(Lista32.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista32.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista32.listar();
+                        carnetArrayHash[32]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==33){
+                    if(Lista33.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista33.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista33.listar();
+                        carnetArrayHash[33]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==34){
+                    if(Lista34.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista34.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista34.listar();
+                        carnetArrayHash[34]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==35){
+                    if(Lista35.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista35.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista35.listar();
+                        carnetArrayHash[35]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==36){
+                    if(Lista36.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista36.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista36.listar();
+                        carnetArrayHash[36]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==37){
+                    if(Lista37.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista37.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista37.listar();
+                        carnetArrayHash[37]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==38){
+                    if(Lista38.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista38.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista38.listar();
+                        carnetArrayHash[38]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==39){
+                    if(Lista39.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista39.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista39.listar();
+                        carnetArrayHash[39]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==40){
+                    if(Lista40.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista40.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista40.listar();
+                        carnetArrayHash[40]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==41){
+                if(Lista41.buscar(carnetito)==true){
+    //            if(Lista41.buscarPassword(getMD5(clave))==true){
+    //                System.out.println("credenciales correctas, usuario eliminado");
                   JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista42.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista42.listar();
-                    carnetArrayHash[42]=IDLlave;
+                  Lista41.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista41.listar();
+                        carnetArrayHash[41]=IDLlave;
+    //            }else{
+    //                System.out.println("contraseña incorrecta");
+    //            }
                 }else{
+    //                System.out.println("credenciales incorrectas");
                     JOptionPane.showMessageDialog(null,"credenciales incorrectas");
                 }
-        }else if(IDLlave==43){
-                if(Lista43.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista43.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista43.listar();
-                    carnetArrayHash[43]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==44){
-                if(Lista44.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista44.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista44.listar();
-                    carnetArrayHash[44]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==45){
-                if(Lista45.buscar(carnetito)==true){
-                  JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
-                  Lista45.removerPorReferencia(carnetito);
-                  tabla.GraficarTabla();
-                  Lista45.listar();
-                    carnetArrayHash[45]=IDLlave;
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
+            }else if(IDLlave==42){
+                    if(Lista42.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista42.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista42.listar();
+                        carnetArrayHash[42]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==43){
+                    if(Lista43.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista43.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista43.listar();
+                        carnetArrayHash[43]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==44){
+                    if(Lista44.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista44.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista44.listar();
+                        carnetArrayHash[44]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }else if(IDLlave==45){
+                    if(Lista45.buscar(carnetito)==true){
+                      JOptionPane.showMessageDialog(null,"Usuario eliminado exitosamente");
+                      Lista45.removerPorReferencia(carnetito);
+                      tabla.GraficarTabla();
+                      Lista45.listar();
+                        carnetArrayHash[45]=IDLlave;
+                    }else{
+                        JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+                    }
+            }
+        
         }else{
-//            System.out.println("el usuario no existe");
-            JOptionPane.showMessageDialog(null,"El usuario no existe");
+            JOptionPane.showMessageDialog(null, "No existe ese usuario en tu lista \n");
         }
         
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -1016,345 +1080,35 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
         // TODO add your handling code here:
-        
-        Biblioteca biblioteca = new Biblioteca();
+         Biblioteca biblioteca = new Biblioteca();
         carnetito = Integer.parseInt(txtCarnet2.getText());
         clave = txtPassword2.getText();
         carnetActual=  carnetito;
         int IDLlave = (carnetito) % 45;
 //        getMD5(clave);
-        
-        if(IDLlave==1){
-                if(Lista1.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+
+        int k=0;
+        boolean bandera = false;
+        for(k=0; k<=1000; k++){
+            if(arrayUsuarioGeneral[k]!=null){
+                if(txtCarnet2.getText() == null ? arrayUsuarioGeneral[k] == null : txtCarnet2.getText().equals(arrayUsuarioGeneral[k])){
+                    bandera=true;
+                    break;
                 }
-        }else if(IDLlave==2){
-                if(Lista2.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==3){
-                if(Lista3.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==4){
-                if(Lista4.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==5){
-                if(Lista5.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==6){
-                if(Lista6.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==7){
-                if(Lista7.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==8){
-                if(Lista8.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==9){
-                if(Lista9.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==10){
-                if(Lista10.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==11){
-                if(Lista11.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==12){
-                if(Lista12.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==13){
-                if(Lista13.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==14){
-                if(Lista14.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==15){
-                if(Lista15.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==16){
-                if(Lista16.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==17){
-                if(Lista17.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==18){
-                if(Lista18.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==19){
-                if(Lista19.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==20){
-                if(Lista20.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==21){
-                if(Lista21.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==22){
-                if(Lista22.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==23){
-                if(Lista23.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==24){
-                if(Lista24.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==25){
-                if(Lista25.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==26){
-                if(Lista26.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==27){
-                if(Lista27.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==28){
-                if(Lista28.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==29){
-                if(Lista29.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==30){
-                if(Lista30.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==31){
-                if(Lista31.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==32){
-                if(Lista32.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==33){
-                if(Lista33.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==34){
-                if(Lista34.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==35){
-                if(Lista35.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==36){
-                if(Lista36.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==37){
-                if(Lista37.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==38){
-                if(Lista38.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==39){
-                if(Lista39.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==40){
-                if(Lista40.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==41){
-            if(Lista41.buscar(carnetito)==true){
-//            if(Lista41.buscarPassword(getMD5(clave))==true){
-//                System.out.println("credenciales correctas, usuario eliminado");
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-//            }else{
-//                System.out.println("contraseña incorrecta");
-//            }
             }else{
-                JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+               bandera=false;
+                break;
             }
-        }else if(IDLlave==42){
-//            if(this.Lista42.esVacia()==true){//Si la lista esta vacia
-//                System.out.println("lista vacia");
-//            }else{//Si la lista esta llena
-                if(Lista42.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-//            }
-            
-        }else if(IDLlave==43){
-                if(Lista43.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==44){
-                if(Lista44.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else if(IDLlave==45){
-                if(Lista45.buscar(carnetito)==true){
-                    biblioteca.setVisible(true);
-                    this.setVisible(false);
-                }else{
-                    JOptionPane.showMessageDialog(null,"credenciales incorrectas");
-                }
-        }else{
-//            System.out.println("el usuario no existe");
-            JOptionPane.showMessageDialog(null,"El usuario no existe");
         }
         
-        
+        if(bandera==true){
+            JOptionPane.showMessageDialog(null,"credenciales correctas, bienvenido");
+            biblioteca.setVisible(true);
+            this.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(null,"credenciales incorrectas");
+        }
+
     }//GEN-LAST:event_btnIniciarActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed

@@ -1,5 +1,6 @@
 
 package proyecto2;
+
 /**
  *
  * @author Adriana Gómez
@@ -7,13 +8,14 @@ package proyecto2;
 public class Proyecto2 {
     
     public static void main(String[] args) throws Exception {
-        Categorias categoria = new Categorias();
-        categoria.setVisible(true);
-        Biblioteca biblioteca = new Biblioteca();
+        
+//        Categorias categoria = new Categorias();
+//        categoria.setVisible(true);
+//        Biblioteca biblioteca = new Biblioteca();
 //        biblioteca.setVisible(true);
         MenuPrincipal menu = new MenuPrincipal();
-//        menu.show();
-        ArbolB arbolito = new ArbolB();
+        menu.show();
+//        ArbolB arbolito = new ArbolB();
             
 //                        Libro nuevo = new Libro();
 //                        nuevo.setISBN(1);

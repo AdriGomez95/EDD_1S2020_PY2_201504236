@@ -1,15 +1,11 @@
 package proyecto2;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
 import static proyecto2.MenuPrincipal.arrayCategoriasGeneral;
+import static proyecto2.MenuPrincipal.arrayISBNGeneral;
+import static proyecto2.MenuPrincipal.arbolBGeneral;
+import static proyecto2.MenuPrincipal.matrizLibros;
 
 /**
  *
@@ -20,13 +16,12 @@ public class Biblioteca extends javax.swing.JFrame {
     
     //para el registro de libros
     int posMatriz=1;
-    String[][] matrizLibros = new String[9][1000];
     int ISBN,carnet,edicion,año;
     String titulo,autor,editorial,categoria,idioma;
     
     //para la busqueda de libros
     String nombreLibro;
-    int x;
+//    int x;
     
     //para las coincidencias
     int y, cantidadLetras,c;
@@ -48,7 +43,7 @@ public class Biblioteca extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel6 = new javax.swing.JPanel();
-        jButton6 = new javax.swing.JButton();
+        btnVerCategorias = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -90,6 +85,7 @@ public class Biblioteca extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtInfoLibro = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -97,22 +93,22 @@ public class Biblioteca extends javax.swing.JFrame {
         jPanel6.setBackground(new java.awt.Color(255, 204, 255));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton6.setBackground(new java.awt.Color(255, 204, 255));
-        jButton6.setFont(new java.awt.Font("Consolas", 0, 11)); // NOI18N
-        jButton6.setText("Ver categorias");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        btnVerCategorias.setBackground(new java.awt.Color(255, 204, 255));
+        btnVerCategorias.setFont(new java.awt.Font("Consolas", 0, 11)); // NOI18N
+        btnVerCategorias.setText("Ver categorias");
+        btnVerCategorias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                btnVerCategoriasActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 30, -1, -1));
+        jPanel6.add(btnVerCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 40, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Comic Sans MS", 1, 24)); // NOI18N
         jLabel1.setText("Biblioteca");
-        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, -1, -1));
 
         jLabel2.setIcon(new javax.swing.ImageIcon("C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\book.png")); // NOI18N
-        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, -1, 33));
+        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, -1, 33));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Agregar libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 1, 11))); // NOI18N
@@ -314,14 +310,14 @@ public class Biblioteca extends javax.swing.JFrame {
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 127, Short.MAX_VALUE)
         );
 
-        jPanel6.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
+        jPanel6.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, 230, 150));
 
         jPanel4.setBackground(new java.awt.Color(255, 153, 153));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Borrar libro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 1, 11))); // NOI18N
@@ -392,14 +388,14 @@ public class Biblioteca extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE)
         );
 
-        jPanel6.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, -1, -1));
+        jPanel6.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, 180, 270));
 
         jButton2.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jButton2.setText("carga masiva");
@@ -409,6 +405,16 @@ public class Biblioteca extends javax.swing.JFrame {
             }
         });
         jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, 230, -1));
+
+        jButton7.setBackground(new java.awt.Color(255, 204, 255));
+        jButton7.setFont(new java.awt.Font("Consolas", 0, 11)); // NOI18N
+        jButton7.setText("Cerrar sesion");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 120, -1));
 
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 530));
 
@@ -431,70 +437,105 @@ public class Biblioteca extends javax.swing.JFrame {
         idioma = txtIdioma.getText();
         carnet = Integer.parseInt(txtCarnet.getText());
         
-        arbolB.insertar(ISBN,funcionReemplazarEspacios(titulo),funcionReemplazarEspacios(autor),funcionReemplazarEspacios(editorial),
-                        año,edicion,funcionReemplazarEspacios(categoria),funcionReemplazarEspacios(idioma),carnet);
-        arbolB.GenerarGrafo();
-        
-        
-        
-            int i,ii;
-            for(i=0; i<=100; i++){
-                if(arrayMisCategorias[i]==null){
-                    arrayMisCategorias[i]=categoria;
-                    JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
+        int k=0;
+        boolean bandera = false;
+        for(k=0; k<=1000; k++){
+            if(arrayISBNGeneral[k]!=0){
+                if(ISBN==arrayISBNGeneral[k]){
+                    JOptionPane.showMessageDialog(null, "El ISBN ya existe \n ingrese otro \n"); 
+                    bandera=false;
                     break;
                 }
-            }
-            for(ii=0; ii<=1000; ii++){
-                if(arrayCategoriasGeneral[ii]==null){
-                    arrayCategoriasGeneral[ii]=categoria;
-                    break;
-                }
-            }
-        
-        
-        
-        
-        
-//        System.out.println("llenado: "+posMatriz);
-        if(matrizLibros[0][posMatriz]==null){
-            matrizLibros[0][posMatriz]=txtISBN.getText();
-            matrizLibros[1][posMatriz]=txtTitulo.getText();
-            matrizLibros[2][posMatriz]=txtAutor.getText();
-            matrizLibros[3][posMatriz]=txtEditorial.getText();
-            matrizLibros[4][posMatriz]=txtAño.getText();
-            matrizLibros[5][posMatriz]=txtEdicion.getText();
-            matrizLibros[6][posMatriz]=txtCategoria.getText();
-            matrizLibros[7][posMatriz]=txtIdioma.getText();
-            matrizLibros[8][posMatriz]=txtCarnet.getText();
-//            posMatriz++;
-        }else{
-            for(int s=1; s==matrizLibros.length; s++){
-                s++;
-                posMatriz=s;
-                if(matrizLibros[0][posMatriz]==null){
-                    matrizLibros[0][posMatriz]=txtISBN.getText();
-                    matrizLibros[1][posMatriz]=txtTitulo.getText();
-                    matrizLibros[2][posMatriz]=txtAutor.getText();
-                    matrizLibros[3][posMatriz]=txtEditorial.getText();
-                    matrizLibros[4][posMatriz]=txtAño.getText();
-                    matrizLibros[5][posMatriz]=txtEdicion.getText();
-                    matrizLibros[6][posMatriz]=txtCategoria.getText();
-                    matrizLibros[7][posMatriz]=txtIdioma.getText();
-                    matrizLibros[8][posMatriz]=txtCarnet.getText();
-                    
-                }
+            }else{
+//                JOptionPane.showMessageDialog(null, "agregado \n"); 
+               bandera=true;
+                break;
             }
         }
         
-        posMatriz++;
+        if(bandera==true){
+            
+            arbolB.insertar(ISBN,funcionReemplazarEspacios(titulo),funcionReemplazarEspacios(autor),funcionReemplazarEspacios(editorial),
+                            año,edicion,funcionReemplazarEspacios(categoria),funcionReemplazarEspacios(idioma),carnet);
+            
+            arbolBGeneral.insertar(ISBN,funcionReemplazarEspacios(titulo),funcionReemplazarEspacios(autor),funcionReemplazarEspacios(editorial),
+                                        año,edicion,funcionReemplazarEspacios(categoria),funcionReemplazarEspacios(idioma),carnet);
+            
+            arbolBGeneral.GenerarGrafoGeneral();
+            arbolB.GenerarGrafo();
+            
+
+
+                int i,ii,o;
+                for(i=0; i<=100; i++){
+                    if(arrayMisCategorias[i]==null){
+                        arrayMisCategorias[i]=categoria;
+//                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
+                        break;
+                    }
+                }
+                for(ii=0; ii<=1000; ii++){
+                    if(arrayCategoriasGeneral[ii]==null){
+                        arrayCategoriasGeneral[ii]=categoria;
+                        break;
+                    }
+                }
+                for(o=0; o<=1000; o++){
+                    if(arrayISBNGeneral[o]==0){
+                        arrayISBNGeneral[o]=ISBN;
+                        break;
+                    }
+                }
+
+
+
+
+
+    //        System.out.println("llenado: "+posMatriz);
+            if(matrizLibros[0][posMatriz]==null){
+                matrizLibros[0][posMatriz]=txtISBN.getText();
+                matrizLibros[1][posMatriz]=txtTitulo.getText();
+                matrizLibros[2][posMatriz]=txtAutor.getText();
+                matrizLibros[3][posMatriz]=txtEditorial.getText();
+                matrizLibros[4][posMatriz]=txtAño.getText();
+                matrizLibros[5][posMatriz]=txtEdicion.getText();
+                matrizLibros[6][posMatriz]=txtCategoria.getText();
+                matrizLibros[7][posMatriz]=txtIdioma.getText();
+                matrizLibros[8][posMatriz]=txtCarnet.getText();
+    //            posMatriz++;
+            }else{
+                for(int s=1; s==matrizLibros.length; s++){
+                    s++;
+                    posMatriz=s;
+                    if(matrizLibros[0][posMatriz]==null){
+                        matrizLibros[0][posMatriz]=txtISBN.getText();
+                        matrizLibros[1][posMatriz]=txtTitulo.getText();
+                        matrizLibros[2][posMatriz]=txtAutor.getText();
+                        matrizLibros[3][posMatriz]=txtEditorial.getText();
+                        matrizLibros[4][posMatriz]=txtAño.getText();
+                        matrizLibros[5][posMatriz]=txtEdicion.getText();
+                        matrizLibros[6][posMatriz]=txtCategoria.getText();
+                        matrizLibros[7][posMatriz]=txtIdioma.getText();
+                        matrizLibros[8][posMatriz]=txtCarnet.getText();
+
+                    }
+                }
+            }
+
+                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
+            posMatriz++;
+        }else{
+                JOptionPane.showMessageDialog(null, "Error en la creacion del libro \n"); 
+            
+        }
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         nombreLibro = txtBusqueda.getText();
 //        Respuesta(nombreLibro);
-        x=0;
+//        x=0;
         txtInfoLibro.setText(Respuesta(nombreLibro));
 //        if(matrizLibros[1][1].equals(nombreLibro)){
 //            txtInfoLibro.setText("ISBN: "+matrizLibros[0][1]+"\nTitulo: "+matrizLibros[1][1]+"\nAutor: "+matrizLibros[2][1]+
@@ -509,38 +550,47 @@ public class Biblioteca extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        c=1;
+//        c=1;
         tituloCoincidencia=txtBusqueda.getText();
         cantidadLetras=tituloCoincidencia.length();
         ultimo = tituloCoincidencia.substring(tituloCoincidencia.length() - 1);
-        txtInfoLibro.setText("Ultima letra: "+ultimo+"\nCantidad de letras: "+cantidadLetras);
+//        txtInfoLibro.setText("Ultima letra: "+ultimo+"\nCantidad de letras: "+cantidadLetras);
+        
         txtCoincidencias.setText(Coincidencias(ultimo));
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void btnVerCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerCategoriasActionPerformed
         // TODO add your handling code here:
         Categorias categoriasV = new Categorias();
         categoriasV.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_btnVerCategoriasActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here
+        MenuPrincipal inicio = new MenuPrincipal();
+        inicio.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     
-    
-    
+   
+    //*****  METODO PARA VERIFICAR COINCIDENCIA DE LIBROS *****
     public String Coincidencias(String info){
-//        String[][] matrizSustituta = new String[1][100];
+//        String[] matrizSustituta = new String[100];
 //        int c=1;
+
         for(y=1; y<=matrizLibros.length; y++){
             
-                System.out.println("Entro");
+//                System.out.println("Entro");
                 String titulo = matrizLibros[1][y];
                 char letraFinal=titulo.charAt(cantidadLetras-1);
-                System.out.println("agarro el nombre de la matriz");
+//                System.out.println("agarro el nombre de la matriz");
                 
                 
                 if(Character.toString(letraFinal) == null ? ultimo == null : Character.toString(letraFinal).equals(ultimo)){
-                    System.out.println("correcto");
+//                    System.out.println("correcto");
 //                    matrizSustituta[0][c]=matrizLibros[0][y];
 //                    matrizSustituta[1][c]=matrizLibros[1][y];
 //                    c++;
@@ -556,25 +606,10 @@ public class Biblioteca extends javax.swing.JFrame {
         return info="No hay coincidencias";
     }
     
-    public void Llenado(String isbn, String titulo){
-        System.out.println(isbn+"   "+titulo);
-//        for(c=1; c==f; c++){
-//            matrizSustituta[0][c]=isbn;
-//            matrizSustituta[1][c]=titulo;
-//        }
-        
-    }
-    
-    
-    
-    
-    
-    
-    
     
     //*****  METODO PARA VERIFICAR LA EXISTENCIA DE LIBROS *****
     public String Respuesta(String info){
-        
+        int x=0;
         for(x=1; x<=1000; x++){
             while(matrizLibros[1][x]!=null){
                 if(matrizLibros[1][x].equals(nombreLibro)){
@@ -592,15 +627,7 @@ public class Biblioteca extends javax.swing.JFrame {
     }
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-
+    //*****  METODO PARA REEMPLAZAR ESPACIOS *****
     public static String funcionReemplazarEspacios(String cadena) {
     return cadena.replace(" ", "_");
 }
@@ -652,12 +679,13 @@ public class Biblioteca extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnVerCategorias;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

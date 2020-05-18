@@ -3,6 +3,7 @@ package proyecto2;
 
 import java.awt.Desktop;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
@@ -300,14 +301,34 @@ boolean siSube = false;
             }
         }
     }
+    void GenerarDotGeneral() {
+        graficar();
+        FileWriter flwriter = null;
+        try {
+            flwriter = new FileWriter("C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibrosGeneral.dot");
+            try (BufferedWriter bfwriter = new BufferedWriter(flwriter)) {
+                bfwriter.write(grafo);
+            }
+            System.out.println("Archivo creado satisfactoriamente...");
+
+        } catch (IOException e) {
+        } finally {
+            if (flwriter != null) {
+                try {
+                    flwriter.close();
+                } catch (IOException e) {
+                }
+            }
+        }
+    }
 
     void GenerarGrafo() {
         try {
             GenerarDot();
             
             String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
-            String fileInputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibros.dot";
-            String fileOutputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibros.jpg";
+            String fileInputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibrosUsuario.dot";
+            String fileOutputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibrosUsuario.jpg";
             String tParam = "-Tjpg";
             String tOParam = "-o";
             String[] cmd = new String[5];
@@ -324,4 +345,31 @@ boolean siSube = false;
         } finally {
         }
     }
+    
+    void GenerarGrafoGeneral() {
+        try {
+            GenerarDotGeneral();
+            
+            String dotPath = "C:\\Program Files (x86)\\Graphviz2.38\\bin\\dot.exe";
+            String fileInputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibrosGeneral.dot";
+            String fileOutputPath = "C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibrosGeneral.jpg";
+            String tParam = "-Tjpg";
+            String tOParam = "-o";
+            String[] cmd = new String[5];
+            cmd[0] = dotPath;
+            cmd[1] = tParam;
+            cmd[2] = fileInputPath;
+            cmd[3] = tOParam;
+            cmd[4] = fileOutputPath;
+            Runtime rt = Runtime.getRuntime();
+            
+            rt.exec(cmd);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        } finally {
+        }
+    }
+    
+    
+    
 }

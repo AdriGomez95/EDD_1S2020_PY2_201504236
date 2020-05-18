@@ -239,7 +239,7 @@ public class Categorias extends javax.swing.JFrame {
                 btnRegresarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(739, 11, -1, -1));
+        jPanel1.add(btnRegresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, -1, -1));
 
         jPanel5.setBackground(new java.awt.Color(255, 153, 153));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Categorias de biblioteca", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Consolas", 1, 11))); // NOI18N
