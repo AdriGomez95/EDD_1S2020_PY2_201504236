@@ -135,10 +135,7 @@ public class Proyecto2 {
 //        TablaDispersa tabla = new TablaDispersa(45);
 //        tabla.InsertarNodoH(listita3, 201403235, "Adriana", "Gomez", "Sistemas", "pass");
 //        tabla.InsertarNodoH(listita3, 201800000, "Alejandro", "Gomez", "Sistemas", "pass");
-//        tabla.InsertarNodoH(listita, 201904892, "Marie", "Davila", "Sistemas", "pass");
-//        tabla.InsertarNodoH(listita3, 201403235);
-//        tabla.InsertarNodoH(listita, 5);
-//        tabla.InsertarNodoH(listita2, 3);
+//        tabla.InsertarNodoH(listita3, 201904892, "Marie", "Davila", "Sistemas", "pass");
 //        tabla.GraficarTabla();
         
         

@@ -316,6 +316,7 @@ public class Categorias extends javax.swing.JFrame {
                     if(txtNombreEliminar.getText().equals(arrayCategoriasGeneral[l])){
                         arrayCategoriasGeneral[l]="";
                         raizAvl = ArbolCategorias.deleteNode(raizAvl, nueva);
+                        
 //                        ArbolCategorias.Graficar(raizAvl);
                         break;
                     }
@@ -351,8 +352,8 @@ public class Categorias extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Llene los campos");
         }else{
             
-            Categoria categoria = new Categoria ();
-            categoria.setNombre(txtNombreAgregar.getText());  
+            Categoria ct = new Categoria ();
+            ct.setNombre(txtNombreAgregar.getText());  
             
             int i,ii;
             for(i=0; i<=100; i++){
@@ -386,9 +387,10 @@ public class Categorias extends javax.swing.JFrame {
 //            }
             
             
-            categoria.setCarnet(Integer.parseInt(txtCarnetAgregar.getText()));  
-            raizAvl = ArbolCategorias.insert(raizAvl, categoria);
-//            ArbolCategorias.Graficar(raizAvl);
+            ct.setCarnet(Integer.parseInt(txtCarnetAgregar.getText()));  
+            raizAvl = ArbolCategorias.insert(raizAvl, ct);
+            ArbolCategorias.Graficar(raizAvl);
+            
         }
         
         txtNombreAgregar.setText(null);

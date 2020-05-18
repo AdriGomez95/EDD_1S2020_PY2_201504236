@@ -1,0 +1,9 @@
+digraph G {
+ rankdir = LR;drama[shape=elipse,label="drama" ];
+documentales[shape=elipse,label="documentales" ];
+drama -> documentales
+sagas[shape=elipse,label="sagas" ];
+documentales -> sagas
+ficcion[shape=elipse,label="ficcion" ];
+sagas -> ficcion
+}

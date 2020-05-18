@@ -1,11 +1,17 @@
 package proyecto2;
 
+import Bibliotecam.AVL;
+import Bibliotecam.Categoria;
 import javax.swing.JOptionPane;
+
+import static proyecto2.MenuPrincipal.ArbolCategorias;
+import static proyecto2.MenuPrincipal.raizAvl;
 
 import static proyecto2.MenuPrincipal.arrayCategoriasGeneral;
 import static proyecto2.MenuPrincipal.arrayISBNGeneral;
 import static proyecto2.MenuPrincipal.arbolBGeneral;
 import static proyecto2.MenuPrincipal.matrizLibros;
+//import static proyecto2.MenuPrincipal.categorial;
 
 /**
  *
@@ -86,6 +92,7 @@ public class Biblioteca extends javax.swing.JFrame {
         txtInfoLibro = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -416,6 +423,14 @@ public class Biblioteca extends javax.swing.JFrame {
         });
         jPanel6.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 120, -1));
 
+        jButton6.setText("jButton6");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, -1, -1));
+
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 530));
 
         pack();
@@ -463,6 +478,12 @@ public class Biblioteca extends javax.swing.JFrame {
             
             arbolBGeneral.GenerarGrafoGeneral();
             arbolB.GenerarGrafo();
+            
+            Categoria categoriam = new Categoria ();
+            categoriam.setNombre(txtCategoria.getText()); 
+            categoriam.setCarnet(Integer.parseInt(txtCarnet.getText()));  
+            raizAvl = ArbolCategorias.insert(raizAvl, categoriam);
+            ArbolCategorias.Graficar(raizAvl);
             
 
 
@@ -573,6 +594,10 @@ public class Biblioteca extends javax.swing.JFrame {
         inicio.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     
    
@@ -685,6 +710,7 @@ public class Biblioteca extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

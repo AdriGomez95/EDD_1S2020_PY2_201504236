@@ -220,6 +220,100 @@ public class Node implements Serializable{
      
     
     
+    boolean v = false;    
+    public boolean Esta ( Node r ,String cate){
+        boolean si = false;               
+        buscar(r,cate);   
+        if (v == true){
+            si = true;
+            v = false;
+        }
+        return si;
+    }
+    
+    public void buscar(Node r,String cat){
+       
+         if(r != null){
+             buscar(r.left,cat);            
+             buscar(r.right,cat);
+             if(r.value.getNombre().compareTo(cat) == 0){
+                   System.out.println(r.value.getNombre() + "ya esta ");  
+                   v = true;
+             }
+                     
+         }
+
+    }
+    
+     boolean LibroEsta = false;
+    
+       
+      Categoria[] mias = new Categoria[50];
+       int cont = 0;
+       public void  RecorrerCategorias(Node r, int carnet){
+       
+             if(r != null){
+             RecorrerCategorias(r.left,carnet);            
+             RecorrerCategorias(r.right,carnet);
+             if(r.value.getCarnet() == carnet){ 
+                   mias[cont] =r.value;
+                   cont++;
+             }
+                     
+           } 
+
+       }
+       
+       
+       public Categoria[]  MisCategorias (Node r, int carnet){
+            RecorrerCategorias(r, carnet);
+            Categoria[] mias2 = new Categoria[50];
+            for (int i = 0; i < mias.length; i++) {
+                 mias2 [i] = mias[i];
+           }
+            for (int i = 0; i < mias.length; i++) {
+               mias[i] = null;
+           }
+            cont= 0;
+           return mias2;
+       
+       }
+        
+       
+       
+        Categoria[] todas= new Categoria[50];
+       int cont2 = 0;
+       public void  RecorrerCategoriasT(Node r){
+       
+             if(r != null){
+             RecorrerCategoriasT(r.left);            
+             RecorrerCategoriasT(r.right);            
+                   todas[cont2] =r.value;
+                   cont2++;  
+           } 
+
+       }
+       
+       
+       public Categoria[]  TodasCategorias (Node r){
+            RecorrerCategoriasT(r);
+            Categoria[] t = new Categoria[50];
+            for (int i = 0; i < mias.length; i++) {
+                 t [i] = todas[i];
+           }
+            for (int i = 0; i < mias.length; i++) {
+               todas[i] = null;
+           }
+            cont2= 0;
+           return t;
+       
+       }
+       
+       
+       
+       
+       
+ 
        LinkedList <Categoria> recorridos = new  LinkedList <Categoria>();
        
         public void  RecorreridoPreorden(Node r){ // raiz-izquierda-derecha
@@ -260,6 +354,148 @@ public class Node implements Serializable{
        
        
        
+       
+        
+        public void imprimirB (Node r, String cat){
+         
+            if(r != null){
+             imprimirB(r.left,cat);            
+             imprimirB(r.right,cat);
+             if(r.value.getNombre().compareTo(cat) == 0){                  
+                 r.value.getArbol().graficar();
+             }
+                     
+         }
+        }
+        
+        
+        
+        
+        
+           public void GraficarRecorridoPreorden (Node node) {
+        
+        
+           if (node != null) // Si no está vacío ...
+            {
+                grafic = "digraph G {\n rankdir = LR;"; 
+                for (int i = 0; i < recorridos.size(); i++) {
+                  grafic =grafic+ recorridos.get(i).getNombre()+"[shape=elipse,label=\""+recorridos.get(i).getNombre()+"\" ];\n";
+                  if (i >0){
+                      grafic =grafic+ recorridos.get(i-1).getNombre()+" -> "+recorridos.get(i).getNombre()+"\n";
+                  }
+                  
+                }
+                
+                grafic = grafic + "}";
+                
+            try {
+            BufferedWriter writer = new BufferedWriter (new FileWriter("avlPreorden.dot"));
+            writer.write(String.valueOf(grafic));
+            writer.close();
+            String comando = "dot -Tpng avlPreorden.dot -o avlPreorden.png";
+            
+            Process p = Runtime.getRuntime().exec(comando);
+            sleep(2000);
+             File objetofile = new File ("avlPreorden.png");
+//            Desktop.getDesktop().open(objetofile);
+            } catch (IOException ex) {} catch (InterruptedException ex) {
+                   Logger.getLogger(AVL.class.getName()).log(Level.SEVERE, null, ex);
+               }
+             grafic = " ";
+             recorridos.clear();
+          
+            }
+ 
+    }
+           
+           public void GraficarRecorridoInorden (Node node) {
+        
+        
+           if (node != null) // Si no está vacío ...
+            {
+                grafic = "digraph G {\n rankdir = LR;"; 
+                for (int i = 0; i < recorridos.size(); i++) {
+                  grafic =grafic+ recorridos.get(i).getNombre()+"[shape=record,label=\""+recorridos.get(i).getNombre()+"\" ];\n";
+                  if (i >0){
+                      grafic =grafic+ recorridos.get(i-1).getNombre()+" -> "+recorridos.get(i).getNombre()+"\n";
+                  }
+                  
+                }
+                
+                grafic = grafic + "}";
+                
+            try {
+            BufferedWriter writer = new BufferedWriter (new FileWriter("avlInorden.dot"));
+            writer.write(String.valueOf(grafic));
+            writer.close();
+            String comando = "dot -Tpng avlInorden.dot -o avlInorden.png";
+            
+            Process p = Runtime.getRuntime().exec(comando);
+            sleep(2000);
+             File objetofile = new File ("avlInorden.png");
+//            Desktop.getDesktop().open(objetofile);
+            } catch (IOException ex) {} catch (InterruptedException ex) {
+                   Logger.getLogger(AVL.class.getName()).log(Level.SEVERE, null, ex);
+               }
+             grafic = " ";
+             recorridos.clear();
+          
+            }
+ 
+    }
+           
+        
+     public void GraficarRecorridoPostorden (Node node) {
+        
+        
+           if (node != null) // Si no está vacío ...
+            {
+                grafic = "digraph G {\n rankdir = LR;"; 
+                for (int i = 0; i < recorridos.size(); i++) {
+                  grafic =grafic+ recorridos.get(i).getNombre()+"[shape=record,label=\""+recorridos.get(i).getNombre()+"\"];\n";
+                  if (i >0){
+                      grafic =grafic+ recorridos.get(i-1).getNombre()+" -> "+recorridos.get(i).getNombre()+"\n";
+                  }
+                  
+                }
+                
+                grafic = grafic + "}";
+                
+            try {
+            BufferedWriter writer = new BufferedWriter (new FileWriter("avlPostorden.dot"));
+            writer.write(String.valueOf(grafic));
+            writer.close();
+            String comando = "dot -Tpng avlPostorden.dot -o avlPostorden.png";
+            
+            Process p = Runtime.getRuntime().exec(comando);
+            sleep(2000);
+             File objetofile = new File ("avlPostorden.png");
+//            Desktop.getDesktop().open(objetofile);
+            } catch (IOException ex) {} catch (InterruptedException ex) {
+                   Logger.getLogger(AVL.class.getName()).log(Level.SEVERE, null, ex);
+               }
+             grafic = " ";
+             recorridos.clear();
+          
+            }
+ 
+    }   
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
            public void GraficarRecorrido (Node node) {
         
@@ -268,7 +504,7 @@ public class Node implements Serializable{
             {
                 grafic = "digraph G {\n rankdir = LR;"; 
                 for (int i = 0; i < recorridos.size(); i++) {
-                  grafic =grafic+ recorridos.get(i).getNombre()+"[shape=elipse,label=\""+recorridos.get(i).getNombre()+"\" style = filled];\n";
+                  grafic =grafic+ recorridos.get(i).getNombre()+"[shape=record,label=\""+recorridos.get(i).getNombre()+"\" style = filled];\n";
                   if (i >0){
                       grafic =grafic+ recorridos.get(i-1).getNombre()+" -> "+recorridos.get(i).getNombre()+"\n";
                   }
@@ -328,13 +564,13 @@ public class Node implements Serializable{
                 grafic = grafic + "}";
                 
             try {
-            BufferedWriter writer = new BufferedWriter (new FileWriter("avl.dot"));
+            BufferedWriter writer = new BufferedWriter (new FileWriter("avlCategorias.dot"));
             writer.write(String.valueOf(grafic));
             writer.close();
-            String comando = "dot -Tpng avl.dot -o avl.png";
+            String comando = "dot -Tpng avlCategorias.dot -o avlCategorias.png";
             Process p = Runtime.getRuntime().exec(comando);
-             File objetofile = new File ("avl.png");
-            Desktop.getDesktop().open(objetofile);
+             File objetofile = new File ("avlCategorias.png");
+//            Desktop.getDesktop().open(objetofile);
             } catch (IOException ex) {}
              auI = " ";
              auD = " ";

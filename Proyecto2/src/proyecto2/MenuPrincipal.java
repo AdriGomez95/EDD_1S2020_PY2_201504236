@@ -168,6 +168,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jButton6.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jButton6.setText("Reportes");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 100, -1, -1));
 
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
@@ -1149,6 +1154,27 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         }   
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        
+        ArbolCategorias.Graficar(raizAvl);
+        ArbolCategorias.RecorreridoPreorden(raizAvl);
+          ArbolCategorias.GraficarRecorridoPreorden(raizAvl);
+        ArbolCategorias.RecorreridoInorden(raizAvl);
+          ArbolCategorias.GraficarRecorridoInorden(raizAvl);
+        ArbolCategorias.RecorreridoPostorden(raizAvl);
+          ArbolCategorias.GraficarRecorridoPostorden(raizAvl);
+          
+        arbolBGeneral.GenerarGrafoGeneral();
+        tabla.GraficarTabla();
+        
+        
+        
+                JOptionPane.showMessageDialog(null, "Reportes generales creados con exito");
+        
+          
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     
     

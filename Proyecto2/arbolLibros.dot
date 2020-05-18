@@ -1,7 +1,0 @@
-digraph matriz{
- rankdir=TB;
-node [ shape=ellipse fontsize=9 color= lightskyblue fontname = Verdana ];
-edge [];
-Nodola_luna_de_miel1[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:1    \nTitulo:la_luna_de_miel    \nAutor:siran    \nEditorial:santillana    \nAño:2000    \nEdicion:1    \nCategoria:fantasia    \nIdioma:español    \nCarnet:201504236    |<p1>
-"];
-}

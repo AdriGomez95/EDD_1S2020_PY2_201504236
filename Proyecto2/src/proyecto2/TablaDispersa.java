@@ -142,7 +142,7 @@ public class TablaDispersa {
     }
 
     public void GraficarTablaDispersa() throws Exception {
-        DispersionText = "digraph G{\n node[shape=record fontsize=9 fontcolor=red color= lightskyblue fontname = Verdana];\n rankdir=LR;\n";
+        DispersionText = "digraph G{\n node[shape=record fontsize=9 fontcolor=blue color= pink fontname = Verdana];\n rankdir=LR;\n";
         DispersionText = DispersionText + "nodeR[label=\"";
         for (int x = 0; x < TamanoDispersa; x++) {
             DispersionText = DispersionText + "<p" + x + ">" + GetNodosAll(x) + "|";

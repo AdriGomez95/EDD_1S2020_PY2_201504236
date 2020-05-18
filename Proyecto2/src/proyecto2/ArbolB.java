@@ -285,7 +285,7 @@ boolean siSube = false;
         graficar();
         FileWriter flwriter = null;
         try {
-            flwriter = new FileWriter("C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibros.dot");
+            flwriter = new FileWriter("C:\\Users\\X\\Desktop\\EDD\\EDD_1S2020_PY2_201504236\\Proyecto2\\arbolLibrosUsuario.dot");
             try (BufferedWriter bfwriter = new BufferedWriter(flwriter)) {
                 bfwriter.write(grafo);
             }

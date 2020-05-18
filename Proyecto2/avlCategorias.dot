@@ -1,0 +1,5 @@
+digraph G {
+"drama\n "[sides=5,color=pink,style=filled]; "drama\n "->"documentales\n ";
+"drama\n "->"sagas\n ";
+"sagas\n "->"ficcion\n ";
+ "documentales\n "[sides=5,color = pink,style=filled];"ficcion\n "[sides=5,color = pink,style=filled]; "sagas\n "[sides=5,color = pink,style=filled];}
