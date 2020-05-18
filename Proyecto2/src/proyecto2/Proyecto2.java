@@ -11,10 +11,10 @@ public class Proyecto2 {
         
 //        Categorias categoria = new Categorias();
 //        categoria.setVisible(true);
-//        Biblioteca biblioteca = new Biblioteca();
-//        biblioteca.setVisible(true);
+        Biblioteca biblioteca = new Biblioteca();
+        biblioteca.setVisible(true);
         MenuPrincipal menu = new MenuPrincipal();
-        menu.show();
+//        menu.show();
 //        ArbolB arbolito = new ArbolB();
             
 //                        Libro nuevo = new Libro();

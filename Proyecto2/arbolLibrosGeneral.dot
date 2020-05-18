@@ -1,0 +1,10 @@
+digraph matriz{
+ rankdir=TB;
+node [ shape=ellipse fontsize=9 color= lightskyblue fontname = Verdana ];
+edge [];
+NodoSirenita1[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:1    \nTitulo:Sirenita    \nAutor:Ricardo    \nEditorial:santillana    \nAño:2020    \nEdicion:1    \nCategoria:infantil    \nIdioma:español    \nCarnet:0    |<p1>
+|<cont2>ISBN:2    \nTitulo:buscadores    \nAutor:Orelio    \nEditorial:santillana    \nAño:1999    \nEdicion:2    \nCategoria:ficcion    \nIdioma:ingles    \nCarnet:0    |<p2>
+|<cont3>ISBN:3    \nTitulo:el_atomo    \nAutor:Miriam    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:ciencia    \nIdioma:español    \nCarnet:0    |<p3>
+|<cont4>ISBN:5    \nTitulo:pedro_infante    \nAutor:jill    \nEditorial:santillana    \nAño:1999    \nEdicion:1    \nCategoria:cocina    \nIdioma:español    \nCarnet:2020    |<p4>
+"];
+}

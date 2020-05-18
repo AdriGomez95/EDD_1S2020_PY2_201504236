@@ -357,16 +357,27 @@ public class Categorias extends javax.swing.JFrame {
             
             int i,ii;
             for(i=0; i<=100; i++){
-                if(arrayMisCategorias[i]==null){
-                    arrayMisCategorias[i]=txtNombreAgregar.getText();
-                    JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
+                if(arrayMisCategorias[i] == null ? txtNombreAgregar.getText() == null : arrayMisCategorias[i].equals(txtNombreAgregar.getText())){
+                    JOptionPane.showMessageDialog(null, "Categoria ya existente \n");
                     break;
+                }else{
+                    if(arrayMisCategorias[i]==null){
+                        arrayMisCategorias[i]=txtNombreAgregar.getText();
+                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
+                        break;
+                    }
                 }
             }
             for(ii=0; ii<=1000; ii++){
-                if(arrayCategoriasGeneral[ii]==null){
-                    arrayCategoriasGeneral[ii]=txtNombreAgregar.getText();
+                if(arrayCategoriasGeneral[ii] == null ? txtNombreAgregar.getText() == null : arrayCategoriasGeneral[ii].equals(txtNombreAgregar.getText())){
+//                    JOptionPane.showMessageDialog(null, "Categoria ya existente \n");
                     break;
+                }else{
+                    if(arrayCategoriasGeneral[ii]==null){
+                        arrayCategoriasGeneral[ii]=txtNombreAgregar.getText();
+//                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
+                        break;
+                    }
                 }
             }
             

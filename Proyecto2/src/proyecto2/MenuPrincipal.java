@@ -10,6 +10,18 @@ import javax.swing.JOptionPane;
 import Bibliotecam.AVL;
 import Bibliotecam.Categoria;
 import Bibliotecam.Libro;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
+
+
+
 /**
  *
  * 
@@ -115,8 +127,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -149,22 +159,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         lblEditarUsuario = new javax.swing.JLabel();
         lblEliminarUsuario = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton1.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        jButton1.setText("Carga \nmasiva");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, -1, -1));
-
-        jButton4.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
-        jButton4.setText("Configuracion IP");
-        getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, -1, -1));
 
         jButton6.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
         jButton6.setText("Reportes");
@@ -455,15 +454,39 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 255));
 
+        jButton1.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jButton1.setText("Carga \nmasiva");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setFont(new java.awt.Font("Consolas", 0, 12)); // NOI18N
+        jButton4.setText("Configuracion IP");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(542, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(67, 67, 67))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(53, 53, 53))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(50, 50, 50)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(338, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -10, 740, 440));
@@ -1139,20 +1162,73 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-         JFileChooser jf = new JFileChooser();
+        
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos.JSON", "JSON");
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileFilter(filtro);
+        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        chooser.showOpenDialog(this);
+        File users = chooser.getSelectedFile();
+        try {
+            JSONParser parser = new JSONParser();
+            Object objects = parser.parse(new FileReader(users));
+            JSONObject jsonObject = (JSONObject) objects;
+            JSONArray usuarios = (JSONArray) jsonObject.get("Usuarios");
+            
+            for (int i = 0; i < usuarios.size(); i++) {
+                JSONObject obj = (JSONObject) usuarios.get(i);
+                String Carnet = obj.get("Carnet").toString();
+                carnet = Integer.parseInt(Carnet);
+//                nombre = obj.get("Nombre").toString().substring(1);
+                nombre = obj.get("Nombre").toString();
+                apellido = obj.get("Apellido").toString();
+                carrera = obj.get("Carrera").toString();
+                password = obj.get("Password").toString();
+//                Usuario nuevo = new Usuario(Nombre, Apellido, Carrera, Password, Integer.parseInt(Carnet));
+//                servidor.nuevaOperacion(Operacion.Tipo.CREAR_USUARIO, nuevo);
+                
 
-        jf.showOpenDialog(this);
-        File Archivo = jf.getSelectedFile();
+                
+                int k=0;
+                boolean bandera = false;
+                for(k=0; k<=1000; k++){
+                    if(arrayUsuarioGeneral[k]!=null){
+                        if(arrayUsuarioGeneral[k] == null ? Carnet == null : arrayUsuarioGeneral[k].equals(Carnet)){
+                            JOptionPane.showMessageDialog(null, "El carnet ya existe \n ingrese otro \n"); 
+                            bandera=false;
+                            break;
+                        }
+                    }else{
+        //                JOptionPane.showMessageDialog(null, "agregado \n"); 
+                        arrayUsuarioGeneral[k]=Carnet;
+//                        System.out.println(arrayUsuarioGeneral[k]);
+                       bandera=true;
+                        break;
+                    }
+                }
 
-        if (Archivo != null) {
-            if (Archivo.getName().endsWith("json")) {
-                System.out.println(Archivo.getAbsolutePath());
-            } else {
 
-                JOptionPane.showMessageDialog(null, "Archivo incorrecto \n intentelo de nuevo");
+                if(bandera==true){
+                    int IDLlave = (carnet) % 45;
+                    insertandoHashLista(IDLlave);//MANDO A LLAMAR AL METODO PARA INSERTAR LOS USUARIOS EN LA HASH
+
+                    tabla.GraficarTabla();
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "Eror en cargar el usuario: "+Carnet+
+                            "\n Nombre: "+nombre); 
+                }
+                
+               
             }
-
-        }   
+//            servidor.nuevoBloque();
+        } catch (IOException | NumberFormatException | ParseException e) {
+            System.out.println("Error en la lectura del archivo de configuracion " + e);
+            JOptionPane.showMessageDialog(this, "ERROR");
+        }
+        
+        
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

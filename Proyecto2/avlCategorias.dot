@@ -1,5 +1,7 @@
 digraph G {
-"drama\n "[sides=5,color=pink,style=filled]; "drama\n "->"documentales\n ";
-"drama\n "->"sagas\n ";
-"sagas\n "->"ficcion\n ";
- "documentales\n "[sides=5,color = pink,style=filled];"ficcion\n "[sides=5,color = pink,style=filled]; "sagas\n "[sides=5,color = pink,style=filled];}
+"ficcion\n "[sides=5,color=pink,style=filled]; "ficcion\n "->"ciencia\n ";
+"ficcion\n "->"historia\n ";
+"ciencia\n "->"cocina\n ";
+"historia\n "->"ficcion\n ";
+"historia\n "->"infantil\n ";
+ "ciencia\n "[sides=5,color = pink,style=filled];"ficcion\n "[sides=5,color = pink,style=filled]; "historia\n "[sides=5,color = pink,style=filled];"cocina\n "[sides=5,color = pink,style=filled];"infantil\n "[sides=5,color = pink,style=filled];}

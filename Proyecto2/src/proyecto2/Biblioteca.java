@@ -2,7 +2,16 @@ package proyecto2;
 
 import Bibliotecam.AVL;
 import Bibliotecam.Categoria;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import static proyecto2.MenuPrincipal.ArbolCategorias;
 import static proyecto2.MenuPrincipal.raizAvl;
@@ -92,7 +101,6 @@ public class Biblioteca extends javax.swing.JFrame {
         txtInfoLibro = new javax.swing.JTextArea();
         jButton2 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -423,14 +431,6 @@ public class Biblioteca extends javax.swing.JFrame {
         });
         jPanel6.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 120, -1));
 
-        jButton6.setText("jButton6");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 500, -1, -1));
-
         getContentPane().add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 530));
 
         pack();
@@ -438,6 +438,151 @@ public class Biblioteca extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        
+        FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivos.JSON", "JSON");
+        JFileChooser chooser = new JFileChooser();
+        chooser.setFileFilter(filtro);
+        chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        chooser.showOpenDialog(this);
+        File users = chooser.getSelectedFile();
+        try {
+            JSONParser parser = new JSONParser();
+            Object objects = parser.parse(new FileReader(users));
+            JSONObject jsonObject = (JSONObject) objects;
+            JSONArray libros = (JSONArray) jsonObject.get("libros");
+            
+            for (int i = 0; i < libros.size(); i++) {
+                JSONObject obj = (JSONObject) libros.get(i);
+                     ISBN = Integer.parseInt(obj.get("ISBN").toString());
+                     titulo= obj.get("Titulo").toString();
+                     autor= obj.get("Autor").toString();
+                     editorial = obj.get("Editorial").toString();
+                     año = Integer.parseInt(obj.get("Año").toString());
+                     edicion= Integer.parseInt(obj.get("Edicion").toString());
+                     idioma = obj.get("Idioma").toString();
+                     categoria = obj.get("Categoria").toString();
+//                Usuario nuevo = new Usuario(Nombre, Apellido, Carrera, Password, Integer.parseInt(Carnet));
+//                servidor.nuevaOperacion(Operacion.Tipo.CREAR_USUARIO, nuevo);
+                
+
+                
+                int k=0;
+                boolean bandera = false;
+                for(k=0; k<=1000; k++){
+                    if(arrayISBNGeneral[k]!=0){
+                        if(ISBN==arrayISBNGeneral[k]){
+                            JOptionPane.showMessageDialog(null, "El ISBN ya existe \n ingrese otro \n"); 
+                            bandera=false;
+                            break;
+                        }
+                    }else{
+        //                JOptionPane.showMessageDialog(null, "agregado \n");
+                       bandera=true;
+                        break;
+                    }
+                }
+
+
+                if(bandera==true){
+
+                    arbolB.insertar(ISBN,funcionReemplazarEspacios(titulo),funcionReemplazarEspacios(autor),funcionReemplazarEspacios(editorial),
+                                    año,edicion,funcionReemplazarEspacios(categoria),funcionReemplazarEspacios(idioma),carnet);
+
+                    arbolBGeneral.insertar(ISBN,funcionReemplazarEspacios(titulo),funcionReemplazarEspacios(autor),funcionReemplazarEspacios(editorial),
+                                                año,edicion,funcionReemplazarEspacios(categoria),funcionReemplazarEspacios(idioma),carnet);
+
+                    arbolBGeneral.GenerarGrafoGeneral();
+                    arbolB.GenerarGrafo();
+
+
+                        int j,jj,p;
+                        for(j=0; j<=100; j++){
+                            if(arrayMisCategorias[j] == null ? categoria == null : arrayMisCategorias[j].equals(categoria)){
+                                JOptionPane.showMessageDialog(null, "Categoria ya existente: "+categoria);
+                                break;
+                            }else{
+                                if(arrayMisCategorias[j]==null){
+                                    arrayMisCategorias[j]=categoria;
+//                                    JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
+                                    break;
+                                }
+                            }
+                        }
+                        for(jj=0; jj<=1000; jj++){
+                            if(arrayCategoriasGeneral[jj] == null ? categoria == null : arrayCategoriasGeneral[jj].equals(categoria)){
+                                JOptionPane.showMessageDialog(null, "Categoria ya existente: "+categoria);
+                                break;
+                            }else{
+                                if(arrayCategoriasGeneral[jj]==null){
+                                    arrayCategoriasGeneral[jj]=categoria;
+            //                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
+                                    break;
+                                }
+                            }
+                        }
+                            for(p=0; p<=1000; p++){
+                                if(arrayISBNGeneral[p]==0){
+                                    arrayISBNGeneral[p]=ISBN;
+                                    break;
+                                }
+                            }
+
+
+                    Categoria categoriam = new Categoria ();
+                    categoriam.setNombre(categoria); 
+                    categoriam.setCarnet(carnet);  
+                    raizAvl = ArbolCategorias.insert(raizAvl, categoriam);
+                    ArbolCategorias.Graficar(raizAvl);
+
+
+
+
+
+            //        System.out.println("llenado: "+posMatriz);
+                    if(matrizLibros[0][posMatriz]==null){
+                        matrizLibros[0][posMatriz]=Integer.toString(ISBN);
+                        matrizLibros[1][posMatriz]=titulo;
+                        matrizLibros[2][posMatriz]=autor;
+                        matrizLibros[3][posMatriz]=editorial;
+                        matrizLibros[4][posMatriz]=Integer.toString(año);
+                        matrizLibros[5][posMatriz]=Integer.toString(edicion);
+                        matrizLibros[6][posMatriz]=categoria;
+                        matrizLibros[7][posMatriz]=idioma;
+//                        matrizLibros[8][posMatriz]=txtCarnet.getText();
+            //            posMatriz++;
+                    }else{
+                        for(int s=1; s==matrizLibros.length; s++){
+                            s++;
+                            posMatriz=s;
+                            if(matrizLibros[0][posMatriz]==null){
+                                matrizLibros[0][posMatriz]=Integer.toString(ISBN);
+                                matrizLibros[1][posMatriz]=titulo;
+                                matrizLibros[2][posMatriz]=autor;
+                                matrizLibros[3][posMatriz]=editorial;
+                                matrizLibros[4][posMatriz]=Integer.toString(año);
+                                matrizLibros[5][posMatriz]=Integer.toString(edicion);
+                                matrizLibros[6][posMatriz]=categoria;
+                                matrizLibros[7][posMatriz]=idioma;
+//                                matrizLibros[8][posMatriz]=txtCarnet.getText();
+
+                            }
+                        }
+                    }
+
+                                JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
+                    posMatriz++;
+                }else{
+                        JOptionPane.showMessageDialog(null, "Error en la creacion del libro: "+ISBN+"\nTitulo: "+titulo); 
+
+                }
+                
+               
+            }
+//            servidor.nuevoBloque();
+        } catch (IOException | NumberFormatException | ParseException e) {
+            System.out.println("Error en la lectura del archivo de configuracion " + e);
+            JOptionPane.showMessageDialog(this, "ERROR");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -488,19 +633,30 @@ public class Biblioteca extends javax.swing.JFrame {
 
 
                 int i,ii,o;
-                for(i=0; i<=100; i++){
+            for(i=0; i<=100; i++){
+                if(arrayMisCategorias[i] == null ? txtCategoria.getText() == null : arrayMisCategorias[i].equals(txtCategoria.getText())){
+                    JOptionPane.showMessageDialog(null, "Categoria ya existente \n");
+                    break;
+                }else{
                     if(arrayMisCategorias[i]==null){
-                        arrayMisCategorias[i]=categoria;
+                        arrayMisCategorias[i]=txtCategoria.getText();
+                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
+                        break;
+                    }
+                }
+            }
+            for(ii=0; ii<=1000; ii++){
+                if(arrayCategoriasGeneral[ii] == null ? txtCategoria.getText() == null : arrayCategoriasGeneral[ii].equals(txtCategoria.getText())){
+//                    JOptionPane.showMessageDialog(null, "Categoria ya existente \n");
+                    break;
+                }else{
+                    if(arrayCategoriasGeneral[ii]==null){
+                        arrayCategoriasGeneral[ii]=txtCategoria.getText();
 //                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
                         break;
                     }
                 }
-                for(ii=0; ii<=1000; ii++){
-                    if(arrayCategoriasGeneral[ii]==null){
-                        arrayCategoriasGeneral[ii]=categoria;
-                        break;
-                    }
-                }
+            }
                 for(o=0; o<=1000; o++){
                     if(arrayISBNGeneral[o]==0){
                         arrayISBNGeneral[o]=ISBN;
@@ -594,10 +750,6 @@ public class Biblioteca extends javax.swing.JFrame {
         inicio.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
 
     
    
@@ -710,7 +862,6 @@ public class Biblioteca extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
