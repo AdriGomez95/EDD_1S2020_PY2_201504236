@@ -213,6 +213,16 @@ boolean siSube = false;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     public void graficar() {
 

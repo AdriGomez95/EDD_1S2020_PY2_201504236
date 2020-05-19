@@ -1,6 +1,5 @@
 package proyecto2;
 
-import Bibliotecam.AVL;
 import Bibliotecam.Categoria;
 import java.io.File;
 import java.io.FileReader;
@@ -17,7 +16,6 @@ import static proyecto2.MenuPrincipal.ArbolCategorias;
 import static proyecto2.MenuPrincipal.raizAvl;
 
 import static proyecto2.MenuPrincipal.arrayCategoriasGeneral;
-import static proyecto2.MenuPrincipal.arrayMisCategorias;
 import static proyecto2.MenuPrincipal.arrayISBNGeneral;
 import static proyecto2.MenuPrincipal.arbolBGeneral;
 import static proyecto2.MenuPrincipal.matrizLibros;
@@ -44,8 +42,8 @@ public class Biblioteca extends javax.swing.JFrame {
     String tituloCoincidencia="", ultimo;
 //    String[][] matrizSustituta = new String[1][1000];
     
-//    //para guardar las categorias individuales
-//    public static String[] arrayMisCategorias = new String[1000];  
+    //para guardar las categorias individuales
+    public static String[] arrayMisCategorias = new String[1000];   
     
     public Biblioteca() {
         initComponents();
@@ -768,6 +766,14 @@ public class Biblioteca extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here
+//        int g;
+//        for(g=0; g==arrayMisCategorias.length; g++){
+//            if(arrayMisCategorias[g]!=null){
+//                arrayMisCategorias[g]==null;
+//            }
+//        }
+        
+        arrayMisCategorias = new String[1000];  
         MenuPrincipal inicio = new MenuPrincipal();
         inicio.setVisible(true);
         this.setVisible(false);

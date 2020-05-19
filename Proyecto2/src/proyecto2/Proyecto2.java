@@ -8,7 +8,8 @@ package proyecto2;
 public class Proyecto2 {
     
     public static void main(String[] args) throws Exception {
-        
+//        String[] prueba = new String[3];
+//        System.out.println(prueba[1]);
 //        Categorias categoria = new Categorias();
 //        categoria.setVisible(true);
         Biblioteca biblioteca = new Biblioteca();

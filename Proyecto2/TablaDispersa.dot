@@ -1,10 +1,36 @@
 digraph G{
  node[shape=record fontsize=9 fontcolor=blue color= pink fontname = Verdana];
  rankdir=LR;
-nodeR[label="<p0>|<p1>|<p2>|<p3>|<p4>|<p5>|<p6>Casilla: 6|<p7>|<p8>|<p9>|<p10>|<p11>|<p12>|<p13>|<p14>|<p15>|<p16>|<p17>|<p18>|<p19>|<p20>|<p21>|<p22>|<p23>|<p24>|<p25>|<p26>|<p27>|<p28>|<p29>|<p30>|<p31>|<p32>|<p33>|<p34>|<p35>|<p36>|<p37>|<p38>|<p39>|<p40>|<p41>Casilla: 41|<p42>|<p43>|<p44>|"];
-node6[label="{<p0>201604236|}"];
+nodeR[label="<p0>|<p1>Casilla: 1|<p2>Casilla: 2|<p3>Casilla: 3|<p4>|<p5>|<p6>Casilla: 6|<p7>|<p8>Casilla: 8|<p9>|<p10>|<p11>|<p12>|<p13>|<p14>|<p15>|<p16>|<p17>|<p18>Casilla: 18|<p19>|<p20>Casilla: 20|<p21>|<p22>|<p23>Casilla: 23|<p24>|<p25>|<p26>Casilla: 26|<p27>|<p28>Casilla: 28|<p29>|<p30>Casilla: 30|<p31>|<p32>|<p33>Casilla: 33|<p34>|<p35>|<p36>|<p37>|<p38>Casilla: 38|<p39>|<p40>|<p41>Casilla: 41|<p42>|<p43>Casilla: 43|<p44>|"];
+node1[label="{<p0>1|<p1>201503476|}"];
+nodeR:p1->node1;
+node2[label="{<p0>2|<p1>201503477|}"];
+nodeR:p2->node2;
+node3[label="{<p0>205878|<p1>2025678|<p2>2029998|}"];
+nodeR:p3->node3;
+node6[label="{<p0>2020011|}"];
 nodeR:p6->node6;
+node8[label="{<p0>202035878|}"];
+nodeR:p8->node8;
+node18[label="{<p0>202005873|<p1>202005558|}"];
+nodeR:p18->node18;
+node20[label="{<p0>202205|}"];
+nodeR:p20->node20;
+node23[label="{<p0>202005878|}"];
+nodeR:p23->node23;
+node26[label="{<p0>201663476|}"];
+nodeR:p26->node26;
+node28[label="{<p0>202005478|<p1>2020078|<p2>202009933|<p3>20156878|}"];
+nodeR:p28->node28;
+node30[label="{<p0>2020314000|}"];
+nodeR:p30->node30;
+node33[label="{<p0>202105878|<p1>202321878|<p2>202033878|}"];
+nodeR:p33->node33;
+node38[label="{<p0>2013135878|}"];
+nodeR:p38->node38;
 node41[label="{<p0>201504236|}"];
 nodeR:p41->node41;
+node43[label="{<p0>20675878|<p1>202098238|}"];
+nodeR:p43->node43;
 
 }

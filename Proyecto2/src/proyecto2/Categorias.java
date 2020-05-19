@@ -7,13 +7,10 @@ import static proyecto2.MenuPrincipal.raizAvl;
 import static proyecto2.MenuPrincipal.carnetActual;
 import static socket.Puerto.listaAcciones;
 import Bibliotecam.Categoria;
-import java.util.Arrays;
-import java.util.Iterator;
-import javax.swing.table.DefaultTableModel;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import static proyecto2.MenuPrincipal.arrayMisCategorias;
+import static proyecto2.Biblioteca.arrayMisCategorias;
 import static proyecto2.MenuPrincipal.arrayCategoriasGeneral;
 /**
  *
@@ -299,49 +296,51 @@ public class Categorias extends javax.swing.JFrame {
         if(txtNombreEliminar.getText().isEmpty()||txtExcusa.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Llene los campos");
         }else{
-            Categoria nueva = new Categoria ();
-            nueva.setNombre(txtNombreEliminar.getText());
-            
-            JSONObject obj10 = new JSONObject();
-            obj10.put("Nombre", txtNombreEliminar.getText());
-            JSONArray list5 = new JSONArray();
-            list5.add(obj10);
-            JSONObject obj11 = new JSONObject();
-            obj11.put("ELIMINAR_CATEGORIA", list5);
-            listaAcciones.add(obj11);
-            
-            
+            boolean bande=false;
             for(int l=0; l<=1000; l++){
-                if(arrayCategoriasGeneral[l]!=null){
-                    if(txtNombreEliminar.getText().equals(arrayCategoriasGeneral[l])){
-                        arrayCategoriasGeneral[l]="";
-                        raizAvl = ArbolCategorias.deleteNode(raizAvl, nueva);
-                        
-//                        ArbolCategorias.Graficar(raizAvl);
-                        break;
-                    }
-                }else{
-                    break;
-                }
-            }
-            
-            for(int l=0; l<=100; l++){
                 if(arrayMisCategorias[l]!=null){
                     if(txtNombreEliminar.getText().equals(arrayMisCategorias[l])){
                         arrayMisCategorias[l]="";
-
+                        bande=true;
                         JOptionPane.showMessageDialog(null, "Eliminado exitosamente \n"); 
-                        txtCategorias.setText("");
-                        txtNombreEliminar.setText("");
-                        txtExcusa.setText("");
-
                         break;
                     }
                 }else{
                     JOptionPane.showMessageDialog(null, "No existe esa categoria en tu lista \n");
+                    bande=false;
                     break;
                 }
             }
+            
+            
+            
+            if(bande==true){
+                Categoria nueva = new Categoria ();
+                nueva.setNombre(txtNombreEliminar.getText());
+            
+                for(int l=0; l<=1000; l++){
+                    if(arrayCategoriasGeneral[l]!=null){
+                        if(txtNombreEliminar.getText().equals(arrayCategoriasGeneral[l])){
+                            arrayCategoriasGeneral[l]="";
+                            raizAvl = ArbolCategorias.deleteNode(raizAvl, nueva);
+
+                            ArbolCategorias.Graficar(raizAvl);
+                            txtCategorias.setText("");
+                            txtCategoriasBiblioteca.setText("");
+                            txtNombreEliminar.setText("");
+                            txtExcusa.setText("");
+                            break;
+                        }
+                    }else{
+                        break;
+                    }
+                }
+            }
+            
+            
+            
+            
+            
 
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -383,7 +382,7 @@ public class Categorias extends javax.swing.JFrame {
             
             
             int i;
-            for(i=0; i<=100; i++){
+            for(i=0; i<=1000; i++){
                 if(arrayMisCategorias[i] == null ? txtNombreAgregar.getText() == null : arrayMisCategorias[i].equals(txtNombreAgregar.getText())){
                     JOptionPane.showMessageDialog(null, "Categoria ya existente en tus categorias \n");
                     break;
@@ -407,34 +406,32 @@ public class Categorias extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         
-            int j=0,z=1;
-            String respuesta="";
+            int j=0;
+            String resp="";
             
             while(arrayMisCategorias[j]!=null){
-                respuesta=respuesta+arrayMisCategorias[j]+"\n";
+                resp=resp+arrayMisCategorias[j]+"\n";
                
                 j++;
-                z++;
                 
             }
-            txtCategorias.setText(respuesta);
+            txtCategorias.setText(resp);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+
+        int j=0;
+        String respuesta="";
         
-        int j;
-            String respuesta="";
-            for(j=0; j<=arrayMisCategorias.length; j++){
-                if(arrayMisCategorias[j]!=null){
-                    respuesta=respuesta+arrayCategoriasGeneral[j]+"\n";
-                }else if(arrayMisCategorias[j]==null){
-                    break;
-                }
+            while(arrayCategoriasGeneral[j]!=null){
+                respuesta=respuesta+arrayCategoriasGeneral[j]+"\n";
+               
+                j++;
                 
             }
-            txtCategoriasBiblioteca.setText(respuesta);
-            
+        txtCategoriasBiblioteca.setText(respuesta);
+
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**

@@ -16,7 +16,7 @@ public class NodoB {
     String categoria;
     String idioma;
     int carnet;
-    
+    int esVisible=1;
     
     public NodoB(int ISBN, String nombre, String autor, String editorial, int año, int edicion, String categoria, String idioma, int carnet) {
         this.ISBN = ISBN;
