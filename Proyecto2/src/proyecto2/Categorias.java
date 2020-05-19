@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
-import static proyecto2.Biblioteca.arrayMisCategorias;
+import static proyecto2.MenuPrincipal.arrayMisCategorias;
 import static proyecto2.MenuPrincipal.arrayCategoriasGeneral;
 /**
  *
@@ -352,55 +352,49 @@ public class Categorias extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Llene los campos");
         }else{
             
-            Categoria ct = new Categoria ();
-            ct.setNombre(txtNombreAgregar.getText());  
             
-            int i,ii;
-            for(i=0; i<=100; i++){
-                if(arrayMisCategorias[i] == null ? txtNombreAgregar.getText() == null : arrayMisCategorias[i].equals(txtNombreAgregar.getText())){
-                    JOptionPane.showMessageDialog(null, "Categoria ya existente \n");
-                    break;
-                }else{
-                    if(arrayMisCategorias[i]==null){
-                        arrayMisCategorias[i]=txtNombreAgregar.getText();
-                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
-                        break;
-                    }
-                }
-            }
+            int ii;
+            boolean bande=false;
             for(ii=0; ii<=1000; ii++){
                 if(arrayCategoriasGeneral[ii] == null ? txtNombreAgregar.getText() == null : arrayCategoriasGeneral[ii].equals(txtNombreAgregar.getText())){
 //                    JOptionPane.showMessageDialog(null, "Categoria ya existente \n");
+                    bande=false;
                     break;
                 }else{
                     if(arrayCategoriasGeneral[ii]==null){
                         arrayCategoriasGeneral[ii]=txtNombreAgregar.getText();
 //                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
+                        bande=true;
                         break;
                     }
                 }
             }
             
-//            if(arrayMisCategorias[i]==null){
-//                arrayMisCategorias[i]=txtNombreAgregar.getText();
-//                i++;
-//            }else{
-//                i++;
-//                arrayMisCategorias[i]=txtNombreAgregar.getText();
-//            }
-             
-//            if(arrayCategoriasGeneral[i]==null){
-//                arrayCategoriasGeneral[ii]=txtNombreAgregar.getText();
-//                ii++;
-//            }else{
-//                ii++;
-//                arrayCategoriasGeneral[ii]=txtNombreAgregar.getText();
-//            }
+            if(bande==true){
+                Categoria ct = new Categoria ();
+                ct.setNombre(txtNombreAgregar.getText());  
+                ct.setCarnet(Integer.parseInt(txtCarnetAgregar.getText()));  
+                raizAvl = ArbolCategorias.insert(raizAvl, ct);
+                ArbolCategorias.Graficar(raizAvl);
+                
+            }
             
             
-            ct.setCarnet(Integer.parseInt(txtCarnetAgregar.getText()));  
-            raizAvl = ArbolCategorias.insert(raizAvl, ct);
-            ArbolCategorias.Graficar(raizAvl);
+            
+            
+            int i;
+            for(i=0; i<=100; i++){
+                if(arrayMisCategorias[i] == null ? txtNombreAgregar.getText() == null : arrayMisCategorias[i].equals(txtNombreAgregar.getText())){
+                    JOptionPane.showMessageDialog(null, "Categoria ya existente en tus categorias \n");
+                    break;
+                }else{
+                    if(arrayMisCategorias[i]==null){
+                        arrayMisCategorias[i]=txtNombreAgregar.getText();
+                        JOptionPane.showMessageDialog(null, "Agregado exitosamente a tus categorias \n"); 
+                        break;
+                    }
+                }
+            }
             
         }
         
@@ -429,13 +423,15 @@ public class Categorias extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         
-        int j=0;
+        int j;
             String respuesta="";
-            
-            while(arrayMisCategorias[j]!=null){
-                respuesta=respuesta+arrayCategoriasGeneral[j]+"\n";
-               
-                j++;
+            for(j=0; j<=arrayMisCategorias.length; j++){
+                if(arrayMisCategorias[j]!=null){
+                    respuesta=respuesta+arrayCategoriasGeneral[j]+"\n";
+                }else if(arrayMisCategorias[j]==null){
+                    break;
+                }
+                
             }
             txtCategoriasBiblioteca.setText(respuesta);
             

@@ -1,9 +1,17 @@
 digraph G {
- rankdir = LR;documentales[shape=record,label="documentales"];
-ficcion[shape=record,label="ficcion"];
-documentales -> ficcion
-sagas[shape=record,label="sagas"];
-ficcion -> sagas
+ rankdir = LR;ciencia[shape=record,label="ciencia"];
+computacion[shape=record,label="computacion"];
+ciencia -> computacion
+estilococo[shape=record,label="estilococo"];
+computacion -> estilococo
 drama[shape=record,label="drama"];
-sagas -> drama
+estilococo -> drama
+cocina[shape=record,label="cocina"];
+drama -> cocina
+hogar[shape=record,label="hogar"];
+cocina -> hogar
+infantil[shape=record,label="infantil"];
+hogar -> infantil
+ficcion[shape=record,label="ficcion"];
+infantil -> ficcion
 }

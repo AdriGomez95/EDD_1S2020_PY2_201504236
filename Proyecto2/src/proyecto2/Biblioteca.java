@@ -17,6 +17,7 @@ import static proyecto2.MenuPrincipal.ArbolCategorias;
 import static proyecto2.MenuPrincipal.raizAvl;
 
 import static proyecto2.MenuPrincipal.arrayCategoriasGeneral;
+import static proyecto2.MenuPrincipal.arrayMisCategorias;
 import static proyecto2.MenuPrincipal.arrayISBNGeneral;
 import static proyecto2.MenuPrincipal.arbolBGeneral;
 import static proyecto2.MenuPrincipal.matrizLibros;
@@ -41,10 +42,10 @@ public class Biblioteca extends javax.swing.JFrame {
     //para las coincidencias
     int y, cantidadLetras,c;
     String tituloCoincidencia="", ultimo;
-    String[][] matrizSustituta = new String[1][100];
+//    String[][] matrizSustituta = new String[1][1000];
     
-    //para guardar las categorias individuales
-    public static String[] arrayMisCategorias = new String[100];  
+//    //para guardar las categorias individuales
+//    public static String[] arrayMisCategorias = new String[1000];  
     
     public Biblioteca() {
         initComponents();
@@ -453,14 +454,14 @@ public class Biblioteca extends javax.swing.JFrame {
             
             for (int i = 0; i < libros.size(); i++) {
                 JSONObject obj = (JSONObject) libros.get(i);
-                     ISBN = Integer.parseInt(obj.get("ISBN").toString());
-                     titulo= obj.get("Titulo").toString();
-                     autor= obj.get("Autor").toString();
-                     editorial = obj.get("Editorial").toString();
-                     año = Integer.parseInt(obj.get("Año").toString());
-                     edicion= Integer.parseInt(obj.get("Edicion").toString());
-                     idioma = obj.get("Idioma").toString();
-                     categoria = obj.get("Categoria").toString();
+                ISBN = Integer.parseInt(obj.get("ISBN").toString());
+                titulo= obj.get("Titulo").toString();
+                autor= obj.get("Autor").toString();
+                editorial = obj.get("Editorial").toString();
+                año = Integer.parseInt(obj.get("Año").toString());
+                edicion= Integer.parseInt(obj.get("Edicion").toString());
+                idioma = obj.get("Idioma").toString();
+                categoria = obj.get("Categoria").toString();
 //                Usuario nuevo = new Usuario(Nombre, Apellido, Carrera, Password, Integer.parseInt(Carnet));
 //                servidor.nuevaOperacion(Operacion.Tipo.CREAR_USUARIO, nuevo);
                 
@@ -471,7 +472,7 @@ public class Biblioteca extends javax.swing.JFrame {
                 for(k=0; k<=1000; k++){
                     if(arrayISBNGeneral[k]!=0){
                         if(ISBN==arrayISBNGeneral[k]){
-                            JOptionPane.showMessageDialog(null, "El ISBN ya existe \n ingrese otro \n"); 
+//                            JOptionPane.showMessageDialog(null, "El ISBN ya existe \n ingrese otro \n"); 
                             bandera=false;
                             break;
                         }
@@ -484,7 +485,13 @@ public class Biblioteca extends javax.swing.JFrame {
 
 
                 if(bandera==true){
-
+                    int p;
+                    for(p=0; p<=1000; p++){
+                        if(arrayISBNGeneral[p]==0){
+                            arrayISBNGeneral[p]=ISBN;
+                            break;
+                        }
+                    }
                     arbolB.insertar(ISBN,funcionReemplazarEspacios(titulo),funcionReemplazarEspacios(autor),funcionReemplazarEspacios(editorial),
                                     año,edicion,funcionReemplazarEspacios(categoria),funcionReemplazarEspacios(idioma),carnet);
 
@@ -494,45 +501,49 @@ public class Biblioteca extends javax.swing.JFrame {
                     arbolBGeneral.GenerarGrafoGeneral();
                     arbolB.GenerarGrafo();
 
-
-                        int j,jj,p;
-                        for(j=0; j<=100; j++){
-                            if(arrayMisCategorias[j] == null ? categoria == null : arrayMisCategorias[j].equals(categoria)){
-                                JOptionPane.showMessageDialog(null, "Categoria ya existente: "+categoria);
+                    
+                    
+                    int jj;
+                    boolean banderita=false;
+                    for(jj=0; jj<=1000; jj++){    //FOR PARA LAS CATEGORIAS GENERALES
+                        if(arrayCategoriasGeneral[jj] == null ? categoria == null : arrayCategoriasGeneral[jj].equals(categoria)){
+//                            JOptionPane.showMessageDialog(null, "Categoria ya existente: "+categoria);
+                            banderita=false;
+                            break;
+                        }else{
+                            if(arrayCategoriasGeneral[jj]==null){
+                                arrayCategoriasGeneral[jj]=categoria;
+        //                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n");
+                                banderita=true;
                                 break;
-                            }else{
-                                if(arrayMisCategorias[j]==null){
-                                    arrayMisCategorias[j]=categoria;
+                            }
+                        }
+                    }
+
+                    if(banderita==true){    //BANDERA DE LAS CATEGORIAS GENERALES
+                        Categoria categoriam = new Categoria ();
+                        categoriam.setNombre(categoria); 
+                        categoriam.setCarnet(carnet);  
+                        raizAvl = ArbolCategorias.insert(raizAvl, categoriam);
+                        ArbolCategorias.Graficar(raizAvl);
+                        
+                    }
+                    
+
+                    
+                    int j;
+                    for(j=0; j<=1000; j++){
+                        if(arrayMisCategorias[j] == null ? categoria == null : arrayMisCategorias[j].equals(categoria)){
+//                            JOptionPane.showMessageDialog(null, "Categoria ya existente: "+categoria);
+                            break;
+                        }else{
+                            if(arrayMisCategorias[j]==null){
+                                arrayMisCategorias[j]=categoria;
 //                                    JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
-                                    break;
-                                }
-                            }
-                        }
-                        for(jj=0; jj<=1000; jj++){
-                            if(arrayCategoriasGeneral[jj] == null ? categoria == null : arrayCategoriasGeneral[jj].equals(categoria)){
-                                JOptionPane.showMessageDialog(null, "Categoria ya existente: "+categoria);
                                 break;
-                            }else{
-                                if(arrayCategoriasGeneral[jj]==null){
-                                    arrayCategoriasGeneral[jj]=categoria;
-            //                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
-                                    break;
-                                }
                             }
                         }
-                            for(p=0; p<=1000; p++){
-                                if(arrayISBNGeneral[p]==0){
-                                    arrayISBNGeneral[p]=ISBN;
-                                    break;
-                                }
-                            }
-
-
-                    Categoria categoriam = new Categoria ();
-                    categoriam.setNombre(categoria); 
-                    categoriam.setCarnet(carnet);  
-                    raizAvl = ArbolCategorias.insert(raizAvl, categoriam);
-                    ArbolCategorias.Graficar(raizAvl);
+                    }
 
 
 
@@ -614,6 +625,13 @@ public class Biblioteca extends javax.swing.JFrame {
         }
         
         if(bandera==true){
+            int o;
+            for(o=0; o<=1000; o++){
+                if(arrayISBNGeneral[o]==0){
+                    arrayISBNGeneral[o]=ISBN;
+                    break;
+                }
+            }
             
             arbolB.insertar(ISBN,funcionReemplazarEspacios(titulo),funcionReemplazarEspacios(autor),funcionReemplazarEspacios(editorial),
                             año,edicion,funcionReemplazarEspacios(categoria),funcionReemplazarEspacios(idioma),carnet);
@@ -624,16 +642,38 @@ public class Biblioteca extends javax.swing.JFrame {
             arbolBGeneral.GenerarGrafoGeneral();
             arbolB.GenerarGrafo();
             
-            Categoria categoriam = new Categoria ();
-            categoriam.setNombre(txtCategoria.getText()); 
-            categoriam.setCarnet(Integer.parseInt(txtCarnet.getText()));  
-            raizAvl = ArbolCategorias.insert(raizAvl, categoriam);
-            ArbolCategorias.Graficar(raizAvl);
+            
+            int ii;
+            boolean band=false;
+            for(ii=0; ii<=1000; ii++){
+                if(arrayCategoriasGeneral[ii] == null ? txtCategoria.getText() == null : arrayCategoriasGeneral[ii].equals(txtCategoria.getText())){
+//                    JOptionPane.showMessageDialog(null, "Categoria ya existente \n");
+                    band=false;
+                    break;
+                }else{
+                    if(arrayCategoriasGeneral[ii]==null){
+                        arrayCategoriasGeneral[ii]=txtCategoria.getText();
+//                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n");
+                        band=true;
+                        break;
+                    }
+                }
+            }
+            
+            if(band==true){
+                Categoria categoriam = new Categoria ();
+                categoriam.setNombre(txtCategoria.getText()); 
+                categoriam.setCarnet(Integer.parseInt(txtCarnet.getText()));  
+                raizAvl = ArbolCategorias.insert(raizAvl, categoriam);
+                ArbolCategorias.Graficar(raizAvl);
+            }
+            
+            
             
 
 
-                int i,ii,o;
-            for(i=0; i<=100; i++){
+            int i;
+            for(i=0; i<=1000; i++){
                 if(arrayMisCategorias[i] == null ? txtCategoria.getText() == null : arrayMisCategorias[i].equals(txtCategoria.getText())){
                     JOptionPane.showMessageDialog(null, "Categoria ya existente \n");
                     break;
@@ -645,24 +685,6 @@ public class Biblioteca extends javax.swing.JFrame {
                     }
                 }
             }
-            for(ii=0; ii<=1000; ii++){
-                if(arrayCategoriasGeneral[ii] == null ? txtCategoria.getText() == null : arrayCategoriasGeneral[ii].equals(txtCategoria.getText())){
-//                    JOptionPane.showMessageDialog(null, "Categoria ya existente \n");
-                    break;
-                }else{
-                    if(arrayCategoriasGeneral[ii]==null){
-                        arrayCategoriasGeneral[ii]=txtCategoria.getText();
-//                        JOptionPane.showMessageDialog(null, "Agregado exitosamente \n"); 
-                        break;
-                    }
-                }
-            }
-                for(o=0; o<=1000; o++){
-                    if(arrayISBNGeneral[o]==0){
-                        arrayISBNGeneral[o]=ISBN;
-                        break;
-                    }
-                }
 
 
 

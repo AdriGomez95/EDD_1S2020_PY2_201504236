@@ -9,22 +9,22 @@ import java.io.Serializable;
 
 
 public class Libro implements Serializable {
-    
-    private int carnet;  
+     
     private int ISBN; 
     private String titulo; 
     private String autor; 
     private String editorial;
+    private String año;
     private String edicion;
-    private String anio;
     private String categoria;
     private String idioma;
+    private int carnet; 
     
     public Libro (){
     }
     
     
-    public Libro  ( int carnet,int ISBN, String titulo ,String autor,String editorial, String edicion,String anio, String categoria, String idioma ) {
+    public Libro  ( int carnet,int ISBN, String titulo ,String autor,String editorial, String edicion,String año, String categoria, String idioma ) {
        
         this.ISBN = ISBN ;
         this.titulo = titulo ;
@@ -34,7 +34,7 @@ public class Libro implements Serializable {
         this.edicion = edicion;
         this.categoria= categoria;
         this.idioma= idioma;
-        this.anio = anio;
+        this.año = año;
             
      }
 
@@ -154,14 +154,14 @@ public class Libro implements Serializable {
      * @return the anio
      */
     public String getAnio() {
-        return anio;
+        return año;
     }
 
     /**
      * @param anio the anio to set
      */
     public void setAnio(String anio) {
-        this.anio = anio;
+        this.año = año;
     }
     
     

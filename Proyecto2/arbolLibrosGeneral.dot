@@ -2,9 +2,25 @@ digraph matriz{
  rankdir=TB;
 node [ shape=ellipse fontsize=9 color= lightskyblue fontname = Verdana ];
 edge [];
-NodoSirenita1[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:1    \nTitulo:Sirenita    \nAutor:Ricardo    \nEditorial:santillana    \nAño:2020    \nEdicion:1    \nCategoria:infantil    \nIdioma:español    \nCarnet:0    |<p1>
+Nodoel_atomo3[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:3    \nTitulo:el_atomo    \nAutor:Miriam    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:ciencia    \nIdioma:español    \nCarnet:0    |<p1>
+|<cont2>ISBN:12    \nTitulo:cocina_hogareña    \nAutor:Miriam    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:hogar    \nIdioma:español    \nCarnet:0    |<p2>
+|<cont3>ISBN:9    \nTitulo:ciencia    \nAutor:Eliot    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:ciencia    \nIdioma:español    \nCarnet:0    |<p3>
+|<cont4>ISBN:6    \nTitulo:live_a_lot    \nAutor:Like    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:drama    \nIdioma:español    \nCarnet:0    |<p4>
+"];NodoSirenita1[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:1    \nTitulo:Sirenita    \nAutor:Ricardo    \nEditorial:santillana    \nAño:2020    \nEdicion:1    \nCategoria:infantil    \nIdioma:español    \nCarnet:0    |<p1>
 |<cont2>ISBN:2    \nTitulo:buscadores    \nAutor:Orelio    \nEditorial:santillana    \nAño:1999    \nEdicion:2    \nCategoria:ficcion    \nIdioma:ingles    \nCarnet:0    |<p2>
-|<cont3>ISBN:3    \nTitulo:el_atomo    \nAutor:Miriam    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:ciencia    \nIdioma:español    \nCarnet:0    |<p3>
-|<cont4>ISBN:5    \nTitulo:pedro_infante    \nAutor:jill    \nEditorial:santillana    \nAño:1999    \nEdicion:1    \nCategoria:cocina    \nIdioma:español    \nCarnet:2020    |<p4>
-"];
+"];Nodoosos_de_peluche4[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:4    \nTitulo:osos_de_peluche    \nAutor:Milla    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:infantil    \nIdioma:español    \nCarnet:0    |<p1>
+|<cont2>ISBN:5    \nTitulo:sillas_cosilla    \nAutor:Daruh    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:hogar    \nIdioma:español    \nCarnet:0    |<p2>
+"];Nodoplatillos_italianos13[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:13    \nTitulo:platillos_italianos    \nAutor:Miriam    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:cocina    \nIdioma:español    \nCarnet:0    |<p1>
+|<cont2>ISBN:14    \nTitulo:libros_pdfe    \nAutor:Miriam    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:computacion    \nIdioma:español    \nCarnet:0    |<p2>
+"];NodoCuestiones_de_destino10[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:10    \nTitulo:Cuestiones_de_destino    \nAutor:Diego_ramos    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:ficcion    \nIdioma:español    \nCarnet:0    |<p1>
+|<cont2>ISBN:11    \nTitulo:3_caminos    \nAutor:Miriam    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:ficcion    \nIdioma:español    \nCarnet:0    |<p2>
+"];Nodoel_lobo_feroz7[shape = record fillcolor= lightskyblue,label="<p0>|<cont1>ISBN:7    \nTitulo:el_lobo_feroz    \nAutor:Duel    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:infantil    \nIdioma:español    \nCarnet:0    |<p1>
+|<cont2>ISBN:8    \nTitulo:el_atomo    \nAutor:Miriam    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:ciencia    \nIdioma:español    \nCarnet:0    |<p2>
+|<cont3>ISBN:15    \nTitulo:c++    \nAutor:Miriam    \nEditorial:santillana    \nAño:2007    \nEdicion:3    \nCategoria:computacion    \nIdioma:español    \nCarnet:0    |<p3>
+"];Nodoel_atomo3:p0->NodoSirenita1[constraint=true];
+Nodoel_atomo3:p1->Nodoosos_de_peluche4[constraint=true];
+Nodoel_atomo3:p2->Nodoplatillos_italianos13[constraint=true];
+Nodoel_atomo3:p3->NodoCuestiones_de_destino10[constraint=true];
+Nodoel_atomo3:p4->Nodoel_lobo_feroz7[constraint=true];
+
 }

@@ -5,15 +5,10 @@ import Bibliotecam.Categoria;
 import Bibliotecam.Libro;
 import java.awt.Desktop;
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.Serializable;
+import java.io.*;
 import static java.lang.Thread.sleep;
 import java.util.LinkedList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import java.util.logging.*;
 
 /**
  *

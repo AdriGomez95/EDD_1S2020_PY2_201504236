@@ -1,7 +1,9 @@
 digraph G {
-"ficcion\n "[sides=5,color=pink,style=filled]; "ficcion\n "->"ciencia\n ";
-"ficcion\n "->"historia\n ";
-"ciencia\n "->"cocina\n ";
-"historia\n "->"ficcion\n ";
-"historia\n "->"infantil\n ";
- "ciencia\n "[sides=5,color = pink,style=filled];"ficcion\n "[sides=5,color = pink,style=filled]; "historia\n "[sides=5,color = pink,style=filled];"cocina\n "[sides=5,color = pink,style=filled];"infantil\n "[sides=5,color = pink,style=filled];}
+"ficcion\n "[sides=5,color=pink,style=filled]; "ficcion\n "->"cocina\n ";
+"ficcion\n "->"infantil\n ";
+"cocina\n "->"ciencia\n ";
+"cocina\n "->"drama\n ";
+"drama\n "->"computacion\n ";
+"infantil\n "->"hogar\n ";
+"infantil\n "->"sisisisi\n ";
+ "cocina\n "[sides=5,color = pink,style=filled];"ciencia\n "[sides=5,color = pink,style=filled];"computacion\n "[sides=5,color = pink,style=filled];"hogar\n "[sides=5,color = pink,style=filled]; "infantil\n "[sides=5,color = pink,style=filled];"drama\n "[sides=5,color = pink,style=filled];"sisisisi\n "[sides=5,color = pink,style=filled];}

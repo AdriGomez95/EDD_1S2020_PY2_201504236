@@ -93,7 +93,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
   public static  String[][] matrizLibros = new String[9][1000];
   
     
-  public static String[] arrayCategoriasGeneral = new String[1000]; //para guardar las categorias 
+  public static String[] arrayCategoriasGeneral = new String[1000]; //para guardar las categorias generales
+    public static String[] arrayMisCategorias; //para mis categorias
   public static int[] arrayISBNGeneral = new int[1000]; //para guardar los isbn y comparar
   public static String[] arrayUsuarioGeneral = new String[1000]; //para guardar los isbn y comparar
   
@@ -1130,6 +1131,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
         }
         
         if(bandera==true){
+            
+        arrayMisCategorias = new String[1000];
             JOptionPane.showMessageDialog(null,"credenciales correctas, bienvenido");
             biblioteca.setVisible(true);
             this.setVisible(false);
@@ -1189,7 +1192,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
                 
 
                 
-                int k=0;
+                int k;
                 boolean bandera = false;
                 for(k=0; k<=1000; k++){
                     if(arrayUsuarioGeneral[k]!=null){
